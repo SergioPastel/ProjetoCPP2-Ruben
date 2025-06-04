@@ -8,7 +8,7 @@ void Produto::setId(int)
 {
 }
 
-int Produto::getId()
+int Produto::getId() const
 {
 	return 0;
 }
@@ -17,7 +17,7 @@ void Produto::setNome(string)
 {
 }
 
-string Produto::getNome()
+string Produto::getNome() const
 {
 	return string();
 }
@@ -26,7 +26,7 @@ void Produto::setQuantidade(int)
 {
 }
 
-int Produto::getQuantidade()
+int Produto::getQuantidade() const
 {
 	return 0;
 }
@@ -35,7 +35,7 @@ void Produto::setPreco(float)
 {
 }
 
-float Produto::getPreco()
+float Produto::getPreco() const
 {
 	return 0.0f;
 }

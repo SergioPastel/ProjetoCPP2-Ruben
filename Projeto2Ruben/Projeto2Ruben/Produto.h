@@ -17,12 +17,12 @@ class Produto
 
 		// Metodos
 		void setId(int);
-		int getId();
+		int getId() const;
 		void setNome(string);
-		string getNome();
+		string getNome() const;
 		void setQuantidade(int);
-		int getQuantidade();
+		int getQuantidade() const;
 		void setPreco(float);
-		float getPreco();
+		float getPreco() const;
 };
 

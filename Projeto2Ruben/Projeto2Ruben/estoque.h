@@ -5,12 +5,15 @@
 
 using namespace std;
 
-class estoque // Essa classe vai ser responsavel pelo nosso vetor de produtos. Vai se encarregar de fazer alterações ao estoque
+class Estoque // Essa classe vai ser responsavel pelo nosso vetor de produtos. Vai se encarregar de fazer alterações ao estoque
 {
 	private: 
-		vector<Produto> Produtos;
-		int qtdeStock = Produtos.size(); // Usaremos isso para fazer IDs automaticos
+		vector<Produto> Produtos;		
 	public:
-		//
+		// Metodos		
+		void mostrarEstoque();
+		void checarProdutoEstoque(int, Produto*&);
+		void removerProduto();
+		void adicionarProduto();
 };
 
