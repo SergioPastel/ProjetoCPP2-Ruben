@@ -24,5 +24,7 @@ class Produto
 		int getQuantidade() const;
 		void setPreco(float);
 		float getPreco() const;
+
+		string imprimirDados();
 };
 

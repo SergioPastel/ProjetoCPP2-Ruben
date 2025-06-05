@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Estoque.h"
+#include "Loja.h"
 
 // Definição de todas as funções "não validações/metodos" do programa
 

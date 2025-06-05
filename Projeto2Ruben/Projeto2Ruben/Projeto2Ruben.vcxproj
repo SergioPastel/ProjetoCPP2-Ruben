@@ -128,18 +128,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cliente.cpp" />
-    <ClCompile Include="Estoque.cpp" />
+    <ClCompile Include="Loja.cpp" />
     <ClCompile Include="Funcoes.cpp" />
     <ClCompile Include="Produto.cpp" />
-    <ClCompile Include="proj1Diego.cpp" />
-    <ClCompile Include="Projeto1Sergio.cpp" />
     <ClCompile Include="Projeto2Ruben.cpp" />
     <ClCompile Include="Validacoes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="Common.h" />
-    <ClInclude Include="Estoque.h" />
+    <ClInclude Include="Loja.h" />
     <ClInclude Include="Funcoes.h" />
     <ClInclude Include="Produto.h" />
     <ClInclude Include="Validacoes.h" />

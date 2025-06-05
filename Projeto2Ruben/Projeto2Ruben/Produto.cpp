@@ -39,3 +39,8 @@ float Produto::getPreco() const
 {
 	return 0.0f;
 }
+
+string Produto::imprimirDados() {
+	string pImpresso = "ID: " + to_string(this->getId()) + " | NOME: " + this->getNome() + " | Quantidade: " + to_string(this->getQuantidade()) + " | Preço: " + to_string(this->getPreco());
+	return pImpresso;
+}
