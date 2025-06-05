@@ -314,6 +314,7 @@ string toMinuscula(string str) {
 void exibirMenu() {
     int opcao;
     Loja l;
+
     vector<pair<int, string>> menuOpcoes = {
         {1, "Efetuar Venda"},
         {2, "Criar Novo / Atualizar Artigo"},

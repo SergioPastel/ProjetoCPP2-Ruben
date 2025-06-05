@@ -14,6 +14,7 @@ class Produto
 	public: 
 		// Construtores
 		Produto();
+		Produto(int, string, int, float);
 
 		// Metodos
 		void setId(int);

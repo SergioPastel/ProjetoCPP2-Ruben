@@ -3,7 +3,16 @@
 
 
 Loja::Loja() {
-    vector<Produto> Produtos;
+    this->Produtos.emplace_back(1, "Placa Mãe Asus B550", 20, 85.00);
+    this->Produtos.emplace_back(2, "Processador Ryzen 5 5600X", 20, 140.00);
+    this->Produtos.emplace_back(3, "Memoria RAM 16GB DDR4", 20, 35.00);
+    this->Produtos.emplace_back(4, "Disco SSD 1TB NVMe", 20, 55.00);
+    this->Produtos.emplace_back(5, "Fonte 650W 80+ Bronze", 20, 45.00);
+    this->Produtos.emplace_back(6, "Placa Grafica RTX 3060", 20, 260.00);
+    this->Produtos.emplace_back(7, "Caixa Mid Tower", 20, 40.00);
+    this->Produtos.emplace_back(8, "Cooler CPU ARGB", 20, 25.00);
+    this->Produtos.emplace_back(9, "Monitor 24'' Full HD", 20, 90.00);
+    this->Produtos.emplace_back(10, "Suporte Monitor", 20, 8.00);
 }
 
 //funcao mostrar estoque

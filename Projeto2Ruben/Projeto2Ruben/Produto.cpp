@@ -4,40 +4,52 @@ Produto::Produto()
 {
 }
 
-void Produto::setId(int)
+Produto::Produto(int id, string nome, int qtde, float preco)
 {
+	this->id = id;
+	this->nome = nome;
+	this->quantidade = qtde;
+	this->precoCusto = preco;
+}
+
+void Produto::setId(int id)
+{
+	this->id = id;
 }
 
 int Produto::getId() const
 {
-	return 0;
+	return this->id;
 }
 
-void Produto::setNome(string)
+void Produto::setNome(string nome)
 {
+	this->nome = nome;
 }
 
 string Produto::getNome() const
 {
-	return string();
+	return this->nome;
 }
 
-void Produto::setQuantidade(int)
+void Produto::setQuantidade(int qtde)
 {
+	this->quantidade = qtde;
 }
 
 int Produto::getQuantidade() const
 {
-	return 0;
+	return this->quantidade;
 }
 
-void Produto::setPreco(float)
+void Produto::setPreco(float preco)
 {
+	this->precoCusto = preco;
 }
 
 float Produto::getPreco() const
 {
-	return 0.0f;
+	return this->precoCusto;
 }
 
 string Produto::imprimirDados() {
