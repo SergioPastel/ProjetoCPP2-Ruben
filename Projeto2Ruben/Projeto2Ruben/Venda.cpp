@@ -1,5 +1,6 @@
 #include "Venda.h"
 #include "Common.h"
+#pragma warning(disable : 4996) // Necessario pra não ocorrer erro de segurança com o CTIME
 
 using namespace std;
 

@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Venda.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -25,6 +21,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Projeto2Ruben.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Projeto2Ruben.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Funcoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Validacoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Validacoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -39,16 +47,16 @@
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Validacoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Validacoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Funcoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,11 +66,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
+              "Title": "Venda.cpp",
+              "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.cpp",
+              "RelativeDocumentMoniker": "Projeto2Ruben\\Venda.cpp",
+              "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.cpp*",
+              "RelativeToolTip": "Projeto2Ruben\\Venda.cpp*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-05T22:01:16.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Venda.h",
+              "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h",
+              "RelativeDocumentMoniker": "Projeto2Ruben\\Venda.h",
+              "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h",
+              "RelativeToolTip": "Projeto2Ruben\\Venda.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-05T22:01:17.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Cliente.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Cliente.cpp",
@@ -70,8 +104,7 @@
               "RelativeToolTip": "Projeto2Ruben\\Cliente.cpp",
               "ViewState": "AgIAADAAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-05T01:07:24.809Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.438Z"
             },
             {
               "$type": "Document",
@@ -83,11 +116,11 @@
               "RelativeToolTip": "Projeto2Ruben\\Common.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-04T22:10:52.684Z"
+              "WhenOpened": "2025-06-05T22:01:17.44Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "Funcoes.h",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Funcoes.h",
@@ -95,76 +128,71 @@
               "RelativeToolTip": "Projeto2Ruben\\Funcoes.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-03T23:12:43.284Z"
+              "WhenOpened": "2025-06-05T22:01:17.441Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Funcoes.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Funcoes.cpp",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Funcoes.cpp",
-              "ViewState": "AgIAAFwBAAAAAAAAAAAewGwBAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkBAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-03T23:26:02.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Loja.h",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Loja.h",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h",
               "RelativeToolTip": "Projeto2Ruben\\Loja.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-02T17:30:40.597Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.445Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Loja.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Loja.cpp",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Loja.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAAcAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-03T23:50:16.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.447Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Produto.h",
-              "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h",
-              "RelativeDocumentMoniker": "Projeto2Ruben\\Produto.h",
-              "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h",
-              "RelativeToolTip": "Projeto2Ruben\\Produto.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-02T16:52:29.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "Produto.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Produto.cpp",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Produto.cpp",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAuwC4AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACsAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-02T17:00:24.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
+              "Title": "Produto.h",
+              "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h",
+              "RelativeDocumentMoniker": "Projeto2Ruben\\Produto.h",
+              "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.h",
+              "RelativeToolTip": "Projeto2Ruben\\Produto.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-06-05T22:01:17.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Cliente.h",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Cliente.h",
@@ -172,12 +200,11 @@
               "RelativeToolTip": "Projeto2Ruben\\Cliente.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-05T00:57:32.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Validacoes.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Validacoes.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Validacoes.cpp",
@@ -185,12 +212,11 @@
               "RelativeToolTip": "Projeto2Ruben\\Validacoes.cpp",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAEAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-03T23:28:13.197Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Validacoes.h",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Validacoes.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Validacoes.h",
@@ -198,21 +224,19 @@
               "RelativeToolTip": "Projeto2Ruben\\Validacoes.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-03T23:17:36.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Projeto2Ruben.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Projeto2Ruben.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Projeto2Ruben.cpp",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 2\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Projeto2Ruben.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Projeto2Ruben.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-02T16:44:40.914Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-05T22:01:17.459Z"
             }
           ]
         }
