@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Produto.h"
+
 #include "Common.h"
 
 using namespace std;
@@ -9,6 +10,7 @@ class Loja // Essa classe vai ser responsavel pelo nosso vetor de produtos. Vai 
 {
 	private: 
 		vector<Produto> Produtos;		
+	
 	public:
 		// Construtores
 		Loja();

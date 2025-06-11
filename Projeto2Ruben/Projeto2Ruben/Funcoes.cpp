@@ -351,8 +351,7 @@ void exibirMenu() {
             // venda();
             break;
         case 2:
-            // chamar funcao de criacao
-            ;
+            l.adicionarProduto();
             break;
         case 3:
             // chamar funcao de eliminacao
