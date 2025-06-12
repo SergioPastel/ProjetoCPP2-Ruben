@@ -25,5 +25,3 @@ public:
 	// Método para imprimir os dados do cliente
 	void imprimirDados() const;
 };
-
-

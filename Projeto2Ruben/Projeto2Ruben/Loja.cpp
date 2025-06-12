@@ -24,7 +24,7 @@ Loja::Loja() {
 }
 
 //funcao mostrar estoque
-void Loja::mostrarEstoque(){
+void Loja::mostrarEstoque() {
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
         << left << setw(30) << "Nome do Produto" << "| "
