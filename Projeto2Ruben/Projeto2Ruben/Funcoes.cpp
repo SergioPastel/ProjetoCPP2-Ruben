@@ -346,13 +346,12 @@ void exibirMenu() {
         cout << linhaSeparadora << endl;
         opcao = validacaoInt("Escolha uma opcao: ");
         switch (opcao) {
-		case 1: l.efetuarVenda();
+        case 1:
             // chamar funcao de venda aqui
             // venda();
             break;
-		case 2: l.adicionarProduto();
-            // chamar funcao de criacao
-            ;
+        case 2:
+            l.adicionarProduto();
             break;
         case 3:
             // chamar funcao de eliminacao
