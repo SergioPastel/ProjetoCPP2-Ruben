@@ -1,5 +1,8 @@
 ﻿#include "Loja.h"
 #include "Common.h"
+#include "Venda.h"
+#include "Produto.h"
+#include "Cliente.h"
 
 
 Loja::Loja() {
@@ -13,6 +16,11 @@ Loja::Loja() {
     this->Produtos.emplace_back(8, "Cooler CPU ARGB", 20, 25.00);
     this->Produtos.emplace_back(9, "Monitor 24'' Full HD", 20, 90.00);
     this->Produtos.emplace_back(10, "Suporte Monitor", 20, 8.00);
+
+    Clientes.push_back(Cliente(1, "João Silva", 912345678, "Rua A, 123"));
+    Clientes.push_back(Cliente(2, "Maria Santos", 934567890, "Av. B, 456"));
+    Clientes.push_back(Cliente(3, "Carlos Costa", 965432187, "Praça C, 789"));
+
 }
 
 //funcao mostrar estoque
@@ -173,4 +181,109 @@ void Loja::adicionarProduto() {
         cout << "Artigo adicionado.";
     }
     _getch();
+}
+
+
+
+void Loja::mostrarClientes()
+{
+    cout << "------------------- CLIENTES -------------------" << endl;
+    for (const auto& c : Clientes) {
+        cout << "ID: " << c.getId() << " | Nome: " << c.getNome() << endl;
+    }
+    cout << "------------------------------------------------" << endl;
+}
+
+Cliente* Loja::selecionarCliente()
+{
+    {
+        mostrarClientes();
+        int idCliente = validacaoInt("Insira o ID do cliente: ");
+        for (auto& c : Clientes) {
+            if (c.getId() == idCliente) {
+                return &c;
+            }
+        }
+        cout << "Cliente não encontrado!" << endl;
+        return nullptr;
+    }
+}
+
+void Loja::adicionarVenda(const Venda& venda)
+{
+    {
+        // Limite de 100 vendas, sobrescreve as mais antigas
+        if (Vendas.size() < 100) {
+            Vendas.push_back(venda);
+        }
+        else {
+            static int pos = 0;
+            Vendas[pos] = venda;
+            pos = (pos + 1) % 100;
+        }
+    }
+}
+void Loja::efetuarVenda()
+{
+    {
+        system("cls");
+        cout << "************ EFETUAR VENDA ************" << endl;
+
+        // Selecionar cliente
+        Cliente* cliente = selecionarCliente();
+        if (!cliente) {
+            cout << "Operação cancelada." << endl;
+            _getch();
+            return;
+        }
+
+        Venda venda(*cliente);
+
+        // Seleção de produtos
+        char adicionarMais;
+        do {
+            mostrarEstoque();
+            int idProduto = validacaoInt("Insira o ID do produto: ");
+            Produto* produtoSelecionado = nullptr;
+            checarProdutoEstoque(idProduto, produtoSelecionado);
+
+            if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
+                cout << "Produto inválido ou sem estoque." << endl;
+            }
+            else {
+                int quantidade = validacaoInt("Quantidade a comprar: ");
+                if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
+                    venda.adicionarProduto(*produtoSelecionado, quantidade);
+                    produtoSelecionado->setQuantidade(produtoSelecionado->getQuantidade() - quantidade);
+                    cout << "Produto adicionado a venda." << endl;
+                }
+                else {
+                    cout << "Quantidade invalida." << endl;
+                }
+            }
+            cout << "Adicionar mais produtos? (Y/N): ";
+            string input;
+            getline(cin, input);
+            adicionarMais = input.empty() ? 'n' : input[0];
+        } while (adicionarMais == 'y' || adicionarMais == 'Y');
+
+        // Checkout
+        double total = venda.getTotalVenda();
+        cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
+        double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+        while (valorEntregue < total) {
+            cout << "Valor insuficiente. Tente novamente." << endl;
+            valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+        }
+        venda.checkout(valorEntregue);
+
+        // Imprimir talão
+        venda.imprimirTalao();
+
+        // Armazenar venda
+        adicionarVenda(venda);
+
+        cout << "Venda concluída! Pressione qualquer tecla para voltar ao menu." << endl;
+        _getch();
+    }
 }

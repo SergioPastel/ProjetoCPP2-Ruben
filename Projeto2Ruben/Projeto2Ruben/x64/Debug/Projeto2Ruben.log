@@ -1,3 +1,45 @@
-﻿  Venda.cpp
-  LINK : E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\x64\Debug\Projeto2Ruben.exe não encontrado ou não compilado pelo o último link incremental; executando link completo
-  Projeto2Ruben.vcxproj -> E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\x64\Debug\Projeto2Ruben.exe
+﻿  Cliente.cpp
+  Loja.cpp
+C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(53,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(117,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(167,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244: 'argumento': conversão de '_Ty' para 'float', possível perda de dados
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:             _Ty=double
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:         ]
+  (compilando o arquivo fonte 'Loja.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(9,20):
+          consulte a referência à instanciação 'void std::vector<Produto,std::allocator<Produto>>::emplace_back<int,const char(&)[20],int,double>(int &&,const char (&)[20],int &&,double &&)' do modelo que está sendo compilada
+              C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(9,32):
+              veja a primeira referência a 'std::vector<Produto,std::allocator<Produto>>::emplace_back' em 'Loja::Loja'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(909,24):
+          consulte a referência à instanciação '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int,const char(&)[20],int,double>(int &&,const char (&)[20],int &&,double &&)' do modelo que está sendo compilada
+          with
+          [
+              _Ty=Produto
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(830,20):
+          consulte a referência à instanciação '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<int,const char(&)[20],int,double>(int &&,const char (&)[20],int &&,double &&)' do modelo que está sendo compilada
+          with
+          [
+              _Ty=Produto
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(848,27):
+          consulte a referência à instanciação 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,int,const char(&)[20],int,double>(_Alloc &,_Objty *const ,int &&,const char (&)[20],int &&,double &&)' do modelo que está sendo compilada
+          with
+          [
+              _Alloc=std::allocator<Produto>,
+              _Ty=Produto,
+              _Objty=Produto
+          ]
+  
+  Funcoes.cpp
+  Produto.cpp
+  Projeto2Ruben.cpp
+  Validacoes.cpp
+  Venda.cpp
+  Gerando Código...
+  Projeto2Ruben.vcxproj -> C:\Users\diego\Dropbox\ATEC\Github\ProjetoCPP2-Ruben\Projeto2Ruben\x64\Debug\Projeto2Ruben.exe

@@ -3,6 +3,7 @@
 #pragma warning(disable : 4996) // Necessario pra não ocorrer erro de segurança com o CTIME
 
 using namespace std;
+int Venda::proximoId = 1;
 
 LinhaVenda::LinhaVenda(int numeroLinha, const Produto& produto, int quantidade, double precoSemIVA, double iva, double totalComIVA)
 {
@@ -43,8 +44,7 @@ double LinhaVenda::getTotalComIVA() const
 {
 	return this->totalComIVA;
 }
-// Inicialização do numero de ID da venda
-int Venda::proximoId = 1;
+;
 
 Venda::Venda()
 {
