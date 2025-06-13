@@ -320,7 +320,8 @@ void exibirMenu() {
         {2, "Criar Novo / Atualizar Artigo"},
         {3, "Excluir Produto"},
         {4, "Exibir Stock"},
-        {5, "Sair"}
+        {5, "Alterar Clientes"},
+        {7, "Sair"}
     };
 
     // Definir as larguras das colunas
@@ -350,9 +351,9 @@ void exibirMenu() {
             // chamar funcao de venda aqui
             // venda();
             break;
-        case 2: l.adicionarProduto();
+        case 2: 
             // chamar funcao de criacao
-            ;
+            l.adicionarProduto();
             break;
         case 3:
             // chamar funcao de eliminacao
@@ -365,6 +366,11 @@ void exibirMenu() {
             _getch();
             break;
         case 5:
+            // chamar funcao mostrar estoque
+            l.mostrarClientes();
+            l.alterarCliente(validacaoInt("Insira o ID do cliente que desejas alterar: "));
+            break;
+        case 7:
             cout << "Pressione qualquer tecla..." << endl;
             _getch();
             break;

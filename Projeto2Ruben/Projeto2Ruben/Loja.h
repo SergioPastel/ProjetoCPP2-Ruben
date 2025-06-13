@@ -25,8 +25,12 @@ public:
 	void removerProduto();
 	void adicionarProduto();
 
-	void efetuarVenda(); // Processo completo de venda
-	void mostrarClientes(); // Para selecionar cliente na venda
 	Cliente* selecionarCliente(); // Retorna ponteiro para cliente selecionado
+	void checarCliente(int, Cliente*&);
+	void mostrarClientes(); 
+	void alterarCliente(int);
+	void adicionarCliente();
+
+	void efetuarVenda(); // Processo completo de venda
 	void adicionarVenda(const Venda& venda); // Adiciona venda ao vetor circular
 };

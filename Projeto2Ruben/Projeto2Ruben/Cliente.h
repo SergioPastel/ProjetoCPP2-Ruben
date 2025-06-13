@@ -6,19 +6,19 @@ class Cliente {
 private:
 	int id;
 	string nome;
-	double telefone;
+	int telefone;
 	string morada;
 
 public:
 	// Construtor
 	Cliente();
-	Cliente(int id, string nome, double telefone, string morada);
+	Cliente(int id, string nome, int telefone, string morada);
 	// Métodos
 	void setId(int);
 	int getId() const;
 	void setNome(string);
 	string getNome() const;
-	void setTelefone(double);
+	void setTelefone(int);
 	double getTelefone() const;
 	void setMorada(string);
 	string getMorada() const;

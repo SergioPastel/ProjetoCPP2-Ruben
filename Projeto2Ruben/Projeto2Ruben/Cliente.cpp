@@ -9,7 +9,7 @@ Cliente::Cliente()
 	this->morada = "";
 }
 
-Cliente::Cliente(int id, string nome, double telefone, string morada)
+Cliente::Cliente(int id, string nome, int telefone, string morada)
 {
 	this->id = id;
 	this->nome = nome;
@@ -37,7 +37,7 @@ string Cliente::getNome() const
 	return nome;
 }
 
-void Cliente::setTelefone(double telefone)
+void Cliente::setTelefone(int telefone)
 {
 	this->telefone = telefone;
 }

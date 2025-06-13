@@ -183,6 +183,34 @@ void Loja::adicionarProduto() {
     _getch();
 }
 
+Cliente* Loja::selecionarCliente()
+{
+    mostrarClientes();
+    Cliente* cliente = nullptr;
+    int idCliente = validacaoInt("Insira o ID do cliente: ");
+
+    checarCliente(idCliente, cliente);
+
+    if (cliente != nullptr) {
+        return cliente;
+    }
+    else {
+        std::cout << "Cliente não encontrado!" << std::endl;
+        return nullptr;
+    }
+}
+
+void Loja::checarCliente(int idCliente, Cliente*& clienteSelecionado) {
+    // Percorre a lista de clientes e, se encontrar o cliente com o ID, guarda o ponteiro.
+    int tamanho = Clientes.size(); // Para evitar problemas de compilador
+    clienteSelecionado = nullptr; // Inicializa como nulo
+    for (int i = 0; i < tamanho; i++) {
+        if (Clientes[i].getId() == idCliente) {
+            clienteSelecionado = &Clientes[i];
+            break;
+        }
+    }
+}
 
 
 void Loja::mostrarClientes()
@@ -194,19 +222,86 @@ void Loja::mostrarClientes()
     cout << "------------------------------------------------" << endl;
 }
 
-Cliente* Loja::selecionarCliente()
-{
-    {
-        mostrarClientes();
-        int idCliente = validacaoInt("Insira o ID do cliente: ");
-        for (auto& c : Clientes) {
-            if (c.getId() == idCliente) {
-                return &c;
-            }
+void Loja::alterarCliente(int id) {
+    Cliente* cliente = nullptr;
+    bool alterado = false;
+    string input;
+    char opt;
+
+    checarCliente(id, cliente);
+
+    if (cliente != nullptr) {
+        // Alteração de nome
+        do {
+            cout << "Deseja alterar o nome?(Y/N)";
+            getline(cin, input);
+            opt = input[0];
+        } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+        
+        if (opt == 'y' || opt == 'Y') {
+            string novoNome;
+            cout << "Digite o novo nome do cliente: ";
+            getline(cin, novoNome);
+            cliente->setNome(novoNome);
+            alterado = true;
         }
-        cout << "Cliente não encontrado!" << endl;
-        return nullptr;
+
+        // Alteração de telefone
+        do {
+            cout << "Deseja alterar o numero de telefone?(Y/N)";
+            getline(cin, input);
+            opt = input[0];
+        } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+
+        if (opt == 'y' || opt == 'Y') {
+            int novoTel;  
+            novoTel = validacaoInt("Digite o novo numero do cliente: ");
+            cliente->setTelefone(novoTel);
+            alterado = true;
+        }
+
+        // Alteração de morada
+        do {
+            cout << "Deseja alterar a morada?(Y/N)";
+            getline(cin, input);
+            opt = input[0];
+        } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+
+        if (opt == 'y' || opt == 'Y') {
+            string novaMorada;
+            cout << "Digite a nova morada do cliente: ";
+            getline(cin, novaMorada);
+            cliente->setNome(novaMorada);
+            alterado = true;
+        }
+
+        if (alterado == true)
+            cout << "Cliente atualizado com sucesso!\n";
+        else
+            cout << "O cliente não foi alterado.\n";
     }
+    else {
+        cout << "Cliente com ID " << id << " não encontrado.\n";
+    }
+}
+
+
+void Loja::adicionarCliente() {
+    int id = Clientes.size() + 1;
+    string nome;
+    int telefone;
+    string morada;
+
+    system("cls");
+    mostrarClientes();
+
+    cout << "Insira o nome do novo cliente: ";
+    getline(cin, nome); // Le a linha inteira, permitindo espacos nos nomes
+    validacaoInt("Insira o numero de telefone: ");
+    cout << "Insira a morada: ";
+    getline(cin, morada);
+
+    this->Clientes.emplace_back(id ,nome, telefone, morada);
 }
 
 void Loja::adicionarVenda(const Venda& venda)
@@ -223,67 +318,78 @@ void Loja::adicionarVenda(const Venda& venda)
         }
     }
 }
+
 void Loja::efetuarVenda()
 {
-    {
-        system("cls");
-        cout << "************ EFETUAR VENDA ************" << endl;
+    string input;
+    char opt;
+    Cliente* cliente;
 
-        // Selecionar cliente
-        Cliente* cliente = selecionarCliente();
-        if (!cliente) {
-            cout << "Operação cancelada." << endl;
-            _getch();
-            return;
+    system("cls");
+    cout << "************ EFETUAR VENDA ************" << endl;
+
+    // Selecionar cliente
+    mostrarClientes();
+    do {
+        cout << "Deseja adicionar um novo cliente?";
+        getline(cin, input);
+        opt = input[0];
+    } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+
+    if (opt == 'Y' || opt == 'y') {
+        adicionarCliente();
+        cliente = &Clientes.back();
+    }
+    else {
+        cliente = selecionarCliente();
+    }
+
+    Venda venda(*cliente);
+
+    // Seleção de produtos
+    char adicionarMais;
+    do {
+        mostrarEstoque();
+        int idProduto = validacaoInt("Insira o ID do produto: ");
+        Produto* produtoSelecionado = nullptr;
+        checarProdutoEstoque(idProduto, produtoSelecionado);
+
+        if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
+            cout << "Produto inválido ou sem estoque." << endl;
         }
-
-        Venda venda(*cliente);
-
-        // Seleção de produtos
-        char adicionarMais;
-        do {
-            mostrarEstoque();
-            int idProduto = validacaoInt("Insira o ID do produto: ");
-            Produto* produtoSelecionado = nullptr;
-            checarProdutoEstoque(idProduto, produtoSelecionado);
-
-            if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
-                cout << "Produto inválido ou sem estoque." << endl;
+        else {
+            int quantidade = validacaoInt("Quantidade a comprar: ");
+            if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
+                venda.adicionarProduto(*produtoSelecionado, quantidade);
+                produtoSelecionado->setQuantidade(produtoSelecionado->getQuantidade() - quantidade);
+                cout << "Produto adicionado a venda." << endl;
             }
             else {
-                int quantidade = validacaoInt("Quantidade a comprar: ");
-                if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
-                    venda.adicionarProduto(*produtoSelecionado, quantidade);
-                    produtoSelecionado->setQuantidade(produtoSelecionado->getQuantidade() - quantidade);
-                    cout << "Produto adicionado a venda." << endl;
-                }
-                else {
-                    cout << "Quantidade invalida." << endl;
-                }
+                cout << "Quantidade invalida." << endl;
             }
-            cout << "Adicionar mais produtos? (Y/N): ";
-            string input;
-            getline(cin, input);
-            adicionarMais = input.empty() ? 'n' : input[0];
-        } while (adicionarMais == 'y' || adicionarMais == 'Y');
-
-        // Checkout
-        double total = venda.getTotalVenda();
-        cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
-        double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
-        while (valorEntregue < total) {
-            cout << "Valor insuficiente. Tente novamente." << endl;
-            valorEntregue = obterFloat("Valor entregue pelo cliente: ");
         }
-        venda.checkout(valorEntregue);
+        cout << "Adicionar mais produtos? (Y/N): ";
+        string input;
+        getline(cin, input);
+        adicionarMais = input.empty() ? 'n' : input[0];
+    } while (adicionarMais == 'y' || adicionarMais == 'Y');
 
-        // Imprimir talão
-        venda.imprimirTalao();
-
-        // Armazenar venda
-        adicionarVenda(venda);
-
-        cout << "Venda concluída! Pressione qualquer tecla para voltar ao menu." << endl;
-        _getch();
+    // Checkout
+    double total = venda.getTotalVenda();
+    cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
+    double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+    while (valorEntregue < total) {
+        cout << "Valor insuficiente. Tente novamente." << endl;
+        valorEntregue = obterFloat("Valor entregue pelo cliente: ");
     }
+    venda.checkout(valorEntregue);
+
+    // Imprimir talão
+    venda.imprimirTalao();
+
+    // Armazenar venda
+    adicionarVenda(venda);
+
+    cout << "Venda concluída! Pressione qualquer tecla para voltar ao menu." << endl;
+    _getch();
 }
