@@ -42,7 +42,7 @@ void Cliente::setTelefone(int telefone)
 	this->telefone = telefone;
 }
 
-double Cliente::getTelefone() const
+int Cliente::getTelefone() const
 {
 	return telefone;
 }

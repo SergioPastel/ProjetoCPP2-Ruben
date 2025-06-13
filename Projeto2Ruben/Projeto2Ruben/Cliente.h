@@ -19,7 +19,7 @@ public:
 	void setNome(string);
 	string getNome() const;
 	void setTelefone(int);
-	double getTelefone() const;
+	int getTelefone() const;
 	void setMorada(string);
 	string getMorada() const;
 	// Método para imprimir os dados do cliente

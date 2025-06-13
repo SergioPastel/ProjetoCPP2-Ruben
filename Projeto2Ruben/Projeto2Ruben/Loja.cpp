@@ -20,7 +20,6 @@ Loja::Loja() {
     Clientes.push_back(Cliente(1, "João Silva", 912345678, "Rua A, 123"));
     Clientes.push_back(Cliente(2, "Maria Santos", 934567890, "Av. B, 456"));
     Clientes.push_back(Cliente(3, "Carlos Costa", 965432187, "Praça C, 789"));
-
 }
 
 //funcao mostrar estoque
@@ -215,9 +214,11 @@ void Loja::checarCliente(int idCliente, Cliente*& clienteSelecionado) {
 
 void Loja::mostrarClientes()
 {
+    system("cls");
     cout << "------------------- CLIENTES -------------------" << endl;
     for (const auto& c : Clientes) {
-        cout << "ID: " << c.getId() << " | Nome: " << c.getNome() << endl;
+        cout << "ID: " << c.getId() << " | Nome: " << c.getNome()  << " | Telefone: " << c.getTelefone() << " | Morada: " <<
+            c.getMorada() << endl;
     }
     cout << "------------------------------------------------" << endl;
 }
@@ -271,7 +272,7 @@ void Loja::alterarCliente(int id) {
             string novaMorada;
             cout << "Digite a nova morada do cliente: ";
             getline(cin, novaMorada);
-            cliente->setNome(novaMorada);
+            cliente->setMorada(novaMorada);
             alterado = true;
         }
 
@@ -279,9 +280,11 @@ void Loja::alterarCliente(int id) {
             cout << "Cliente atualizado com sucesso!\n";
         else
             cout << "O cliente não foi alterado.\n";
+        _getch();
     }
     else {
-        cout << "Cliente com ID " << id << " não encontrado.\n";
+        cout << "Cliente com ID " << id << " não existe.\n";
+        _getch();
     }
 }
 
@@ -328,28 +331,13 @@ void Loja::efetuarVenda()
     system("cls");
     cout << "************ EFETUAR VENDA ************" << endl;
 
-    // Selecionar cliente
-    mostrarClientes();
-    do {
-        cout << "Deseja adicionar um novo cliente?";
-        getline(cin, input);
-        opt = input[0];
-    } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
-
-    if (opt == 'Y' || opt == 'y') {
-        adicionarCliente();
-        cliente = &Clientes.back();
-    }
-    else {
-        cliente = selecionarCliente();
-    }
-
-    Venda venda(*cliente);
+    Venda venda;
 
     // Seleção de produtos
     char adicionarMais;
-    do {
-        mostrarEstoque();
+
+    mostrarEstoque();
+    do {        
         int idProduto = validacaoInt("Insira o ID do produto: ");
         Produto* produtoSelecionado = nullptr;
         checarProdutoEstoque(idProduto, produtoSelecionado);
@@ -373,6 +361,23 @@ void Loja::efetuarVenda()
         getline(cin, input);
         adicionarMais = input.empty() ? 'n' : input[0];
     } while (adicionarMais == 'y' || adicionarMais == 'Y');
+
+    // Selecionar cliente
+    system("cls");
+    mostrarClientes();
+    do {
+        cout << "Deseja adicionar um novo cliente?";
+        getline(cin, input);
+        opt = input[0];
+    } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+
+    if (opt == 'Y' || opt == 'y') {
+        adicionarCliente();
+        cliente = &Clientes.back();
+    }
+    else {
+        cliente = selecionarCliente();
+    }
 
     // Checkout
     double total = venda.getTotalVenda();

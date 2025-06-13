@@ -381,5 +381,5 @@ void exibirMenu() {
 
         cout << endl;
 
-    } while (opcao != 5);
+    } while (opcao != 7);
 }
