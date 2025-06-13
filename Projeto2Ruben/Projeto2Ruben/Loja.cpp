@@ -335,6 +335,7 @@ void Loja::efetuarVenda()
 
     // Seleção de produtos
     char adicionarMais;
+	bool produtoAdicionado = false;
 
     mostrarEstoque();
     do {        
@@ -344,6 +345,8 @@ void Loja::efetuarVenda()
 
         if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
             cout << "Produto inválido ou sem estoque." << endl;
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer de entrada
+            system("cls");
         }
         else {
             int quantidade = validacaoInt("Quantidade a comprar: ");
@@ -351,6 +354,7 @@ void Loja::efetuarVenda()
                 venda.adicionarProduto(*produtoSelecionado, quantidade);
                 produtoSelecionado->setQuantidade(produtoSelecionado->getQuantidade() - quantidade);
                 cout << "Produto adicionado a venda." << endl;
+				produtoAdicionado = true; // Marca que pelo menos um produto foi adicionado
             }
             else {
                 cout << "Quantidade invalida." << endl;
@@ -360,15 +364,22 @@ void Loja::efetuarVenda()
         string input;
         getline(cin, input);
         adicionarMais = input.empty() ? 'n' : input[0];
+		system("cls");
     } while (adicionarMais == 'y' || adicionarMais == 'Y');
 
+    if (!produtoAdicionado)
+    {
+        cout << "Nenhum produto válido foi adicionado. Venda cancelada!" << endl;
+		_getch();
+		return;
+    }
+
     // Selecionar cliente
-    system("cls");
-    mostrarClientes();
     do {
-        cout << "Deseja adicionar um novo cliente?";
+        mostrarClientes();
+        cout << "Deseja adicionar um novo cliente? (Y/N): ";
         getline(cin, input);
-        opt = input[0];
+        opt = input.empty() ? 'n' : input[0];
     } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
 
     if (opt == 'Y' || opt == 'y') {
@@ -376,7 +387,23 @@ void Loja::efetuarVenda()
         cliente = &Clientes.back();
     }
     else {
-        cliente = selecionarCliente();
+        do
+        {
+            cliente = selecionarCliente();
+            if (!cliente)
+            {
+                cout << "ID de cliente inválido. Tente novamente ou adicione um novo cliente." << endl;
+				cout << "Deseja tentar novamente? (Y/N): ";
+				getline(cin, input);
+				char tentarNovamente = input.empty() ? 'n' : input[0];
+                if (tentarNovamente == 'n' || tentarNovamente == 'N')
+                {
+                    cout << "Venda cancelada. " << endl;
+					_getch();
+					return; // Cancela a venda se o cliente não for selecionado
+                }
+            }
+        } while (!cliente);
     }
 
     // Checkout

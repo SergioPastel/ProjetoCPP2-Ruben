@@ -320,7 +320,8 @@ void exibirMenu() {
         {2, "Criar Novo / Atualizar Artigo"},
         {3, "Excluir Produto"},
         {4, "Exibir Stock"},
-        {5, "Alterar Clientes"},
+		{5, "Alterar Clientes"},
+		{6, "Adicionar clientes"},
         {7, "Sair"}
     };
 
@@ -366,10 +367,14 @@ void exibirMenu() {
             _getch();
             break;
         case 5:
-            // chamar funcao mostrar estoque
+            // chamar funcao mostrar clientes
             l.mostrarClientes();
             l.alterarCliente(validacaoInt("Insira o ID do cliente que desejas alterar: "));
             break;
+		case 6:
+			// chamar funcao adicionar cliente
+			l.adicionarCliente();
+			break;
         case 7:
             cout << "Pressione qualquer tecla..." << endl;
             _getch();

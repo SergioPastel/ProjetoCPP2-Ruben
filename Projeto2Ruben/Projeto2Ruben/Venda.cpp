@@ -123,6 +123,9 @@ double Venda::getTotalVenda() const
 
 void Venda::imprimirTalao() const
 {
+	
+	std::cout << "\033[47m\033[30m"; // Fundo branco (\033[47m), texto preto (\033[30m)
+
 	cout << "------------------- TALAO DE COMPRA -------------------" << endl;
 	cout << "Fatura N.: " << this->idVenda << " | Data: " << ctime(&this->dataVenda);
 	cout << "Cliente N.: " << this->cliente.getId() << " | Nome: " << this->cliente.getNome() << endl;
@@ -142,4 +145,7 @@ void Venda::imprimirTalao() const
 	cout << "Valor entregue: " << this->valorEntregue << " EUR" << endl;
 	cout << "Troco: " << this->troco << " EUR" << endl;
 	cout << "-------------------------------------------------------" << endl;
+	
+	std::cout << "\033[0m"; // Reset para as cores padrão
+
 }
