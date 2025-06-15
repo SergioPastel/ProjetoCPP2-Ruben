@@ -346,13 +346,12 @@ void Loja::efetuarVenda()
         if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
             cout << "Produto inválido ou sem estoque." << endl;
 			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer de entrada
-            system("cls");
+
         }
         else {
             int quantidade = validacaoInt("Quantidade a comprar: ");
             if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
-                venda.adicionarProduto(*produtoSelecionado, quantidade);
-                produtoSelecionado->setQuantidade(produtoSelecionado->getQuantidade() - quantidade);
+                venda.adicionarProduto(*produtoSelecionado, quantidade);                
                 cout << "Produto adicionado a venda." << endl;
 				produtoAdicionado = true; // Marca que pelo menos um produto foi adicionado
             }
@@ -361,10 +360,8 @@ void Loja::efetuarVenda()
             }
         }
         cout << "Adicionar mais produtos? (Y/N): ";
-        string input;
         getline(cin, input);
         adicionarMais = input.empty() ? 'n' : input[0];
-		system("cls");
     } while (adicionarMais == 'y' || adicionarMais == 'Y');
 
     if (!produtoAdicionado)
@@ -406,6 +403,23 @@ void Loja::efetuarVenda()
         } while (!cliente);
     }
 
+    // Confirmar venda e atualizar estoque
+    const auto& itensVendidos = venda.getLinhas();
+
+    for (const auto& item : itensVendidos) {
+        int idComprado = item.getProduto().getId(); // ID do produto comprado
+        int quantidadeVendida = item.getQuantidade();
+
+        // Procurar no estoque o produto com o mesmo ID
+        for (auto& produtoEstoque : this->Produtos) {
+            if (produtoEstoque.getId() == idComprado) {
+                // Atualizar a quantidade no estoque real
+                produtoEstoque.setQuantidade(produtoEstoque.getQuantidade() - quantidadeVendida);
+                break; // Encontrou e atualizou, pode sair do loop interno
+            }
+        }
+    }
+
     // Checkout
     double total = venda.getTotalVenda();
     cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
@@ -417,6 +431,7 @@ void Loja::efetuarVenda()
     venda.checkout(valorEntregue);
 
     // Imprimir talão
+    system("cls");
     venda.imprimirTalao();
 
     // Armazenar venda
