@@ -30,6 +30,7 @@ public:
 	void mostrarClientes(); 
 	void alterarCliente(int);
 	void adicionarCliente();
+	void removerCliente(int);
 
 	void efetuarVenda(); // Processo completo de venda
 	void adicionarVenda(const Venda& venda); // Adiciona venda ao vetor circular

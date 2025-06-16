@@ -19,9 +19,10 @@ void exibirMenu() {
         {2, "Criar Novo / Atualizar Artigo"},
         {3, "Excluir Produto"},
         {4, "Exibir Stock"},
-		{5, "Alterar Clientes"},
-		{6, "Adicionar clientes"},
-        {7, "Sair"}
+		{5, "Adicionar Clientes"},
+		{6, "Alterar Clientes"},
+        {7, "Remover Clientes"},
+        {8, "Sair"}
     };
 
     // Definir as larguras das colunas
@@ -66,15 +67,20 @@ void exibirMenu() {
             _getch();
             break;
         case 5:
+            // chamar funcao adicionar cliente
+            l.adicionarCliente();
+            break;
+		case 6:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
             l.alterarCliente(validacaoInt("Insira o ID do cliente que desejas alterar: "));
             break;
-		case 6:
-			// chamar funcao adicionar cliente
-			l.adicionarCliente();
-			break;
         case 7:
+            // chamar funcao mostrar clientes
+            l.mostrarClientes();
+            l.removerCliente(validacaoInt("Insira o ID do cliente que desejas remover: "));
+            break;
+        case 8:
             cout << "Pressione qualquer tecla..." << endl;
             _getch();
             break;

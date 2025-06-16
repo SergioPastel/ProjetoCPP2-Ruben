@@ -217,8 +217,7 @@ void Loja::mostrarClientes()
     system("cls");
     cout << "------------------- CLIENTES -------------------" << endl;
     for (const auto& c : Clientes) {
-        cout << "ID: " << c.getId() << " | Nome: " << c.getNome()  << " | Telefone: " << c.getTelefone() << " | Morada: " <<
-            c.getMorada() << endl;
+        c.imprimirDados();
     }
     cout << "------------------------------------------------" << endl;
 }
@@ -234,7 +233,7 @@ void Loja::alterarCliente(int id) {
     if (cliente != nullptr) {
         // Alteração de nome
         do {
-            cout << "Deseja alterar o nome?(Y/N)";
+            cout << "Deseja alterar o nome?(Y/N): ";
             getline(cin, input);
             opt = input[0];
         } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
@@ -249,7 +248,7 @@ void Loja::alterarCliente(int id) {
 
         // Alteração de telefone
         do {
-            cout << "Deseja alterar o numero de telefone?(Y/N)";
+            cout << "Deseja alterar o numero de telefone?(Y/N): ";
             getline(cin, input);
             opt = input[0];
         } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
@@ -263,7 +262,7 @@ void Loja::alterarCliente(int id) {
 
         // Alteração de morada
         do {
-            cout << "Deseja alterar a morada?(Y/N)";
+            cout << "Deseja alterar a morada?(Y/N): ";
             getline(cin, input);
             opt = input[0];
         } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
@@ -288,6 +287,23 @@ void Loja::alterarCliente(int id) {
     }
 }
 
+void Loja::removerCliente(int id) {
+    Cliente* cliente = nullptr;
+    string input;
+    char opt;
+
+    checarCliente(id, cliente);    
+
+    if (id == 0) {
+        return;
+    }
+    else if (cliente == nullptr) {
+        
+    }
+    else {
+        
+    }
+}
 
 void Loja::adicionarCliente() {
     int id = Clientes.size() + 1;
@@ -300,7 +316,7 @@ void Loja::adicionarCliente() {
 
     cout << "Insira o nome do novo cliente: ";
     getline(cin, nome); // Le a linha inteira, permitindo espacos nos nomes
-    validacaoInt("Insira o numero de telefone: ");
+    telefone = validacaoInt("Insira o numero de telefone: ");
     cout << "Insira a morada: ";
     getline(cin, morada);
 
