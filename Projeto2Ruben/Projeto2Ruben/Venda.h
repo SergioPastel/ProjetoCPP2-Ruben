@@ -52,6 +52,7 @@ public:
     // Getters
     int getIdVenda() const;
     Cliente getCliente() const;
+    void setCliente(const Cliente& cliente);
     vector<LinhaVenda> getLinhas() const;
     double getValorEntregue() const;
     double getTroco() const;

@@ -92,6 +92,10 @@ Cliente Venda::getCliente() const
 	return this->cliente;
 }
 
+void Venda::setCliente(const Cliente& cliente) {
+	this->cliente = cliente;
+}
+
 vector<LinhaVenda> Venda::getLinhas() const
 {
 	return this->linhas;
@@ -128,7 +132,7 @@ void Venda::imprimirTalao() const
 
 	cout << "------------------- TALAO DE COMPRA -------------------" << endl;
 	cout << "Fatura N.: " << this->idVenda << " | Data: " << ctime(&this->dataVenda);
-	cout << "Cliente N.: " << this->cliente.getId() << " | Nome: " << this->cliente.getNome() << endl;
+	cout << "Cliente N.: " << this->getCliente().getId() << " | Nome: " << this->getCliente().getNome() << endl;
 	cout << "-------------------------------------------------------" << endl;
 	cout << left << setw(5) << "N." << setw(20) << "Produto" << setw(10) << "Qtd"
 		<< setw(12) << "Preco s/IVA" << setw(10) << "IVA" << setw(12) << "Total c/IVA" << endl;

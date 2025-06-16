@@ -1,4 +1,5 @@
-﻿  Loja.cpp
+﻿  Cliente.cpp
+  Loja.cpp
 E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(52,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
 E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(116,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
 E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(166,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
@@ -37,4 +38,9 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.3520
               _Objty=Produto
           ]
   
+  Funcoes.cpp
+  Projeto2Ruben.cpp
+  Validacoes.cpp
+  Venda.cpp
+  Gerando Código...
   Projeto2Ruben.vcxproj -> E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\x64\Debug\Projeto2Ruben.exe

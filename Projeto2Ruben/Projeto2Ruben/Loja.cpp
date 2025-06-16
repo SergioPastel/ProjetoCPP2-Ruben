@@ -403,6 +403,8 @@ void Loja::efetuarVenda()
         } while (!cliente);
     }
 
+    venda.setCliente(*cliente);
+
     // Confirmar venda e atualizar estoque
     const auto& itensVendidos = venda.getLinhas();
 
