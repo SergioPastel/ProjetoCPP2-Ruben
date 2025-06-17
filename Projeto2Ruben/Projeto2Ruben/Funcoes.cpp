@@ -83,6 +83,7 @@ void exibirMenu() {
         case 8:
             cout << "Pressione qualquer tecla..." << endl;
             _getch();
+            exit(0); 
             break;
         default:
             cout << "Opcao invalida! Tente novamente." << endl;
