@@ -292,21 +292,47 @@ void Loja::removerCliente(int id) {
     string input;
     char opt;
 
-    checarCliente(id, cliente);    
+    checarCliente(id, cliente);
 
     if (id == 0) {
         return;
     }
     else if (cliente == nullptr) {
-        
+        cout << "Cliente com ID " << id << " não encontrado.\n";
+        _getch();
+        return;
     }
     else {
-        
+        // Confirmação de remoção
+        do {
+            cout << "Tem certeza que deseja remover o cliente '" << cliente->getNome() << "'? (Y/N): ";
+            getline(cin, input);
+            opt = input.empty() ? 'n' : input[0];
+        } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
+
+        if (opt == 'n' || opt == 'N') {
+            cout << "Remoção cancelada.\n";
+            _getch();
+            return;
+        }
+
+        // Remove o cliente do vetor
+        for (auto it = Clientes.begin(); it != Clientes.end(); ++it) {
+            if (it->getId() == id) {
+                Clientes.erase(it);
+                cout << "Cliente removido com sucesso.\n";
+                _getch();
+                return;
+            }
+        }
+        // Caso não encontre (deveria ter encontrado)
+        cout << "Erro ao remover cliente.\n";
+        _getch();
     }
 }
 
 void Loja::adicionarCliente() {
-    int id = Clientes.size() + 1;
+    int id = Clientes.back().getId() + 1;
     string nome;
     int telefone;
     string morada;

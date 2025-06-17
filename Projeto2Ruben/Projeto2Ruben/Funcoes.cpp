@@ -78,7 +78,18 @@ void exibirMenu() {
         case 7:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
-            l.removerCliente(validacaoInt("Insira o ID do cliente que desejas remover: "));
+            {
+                int id = validacaoInt("Insira o ID do cliente que desejas remover: ");
+                Cliente* clientePtr = nullptr;
+                l.checarCliente(id, clientePtr);
+                if (clientePtr != nullptr) {
+                    l.removerCliente(id);
+                } else {
+                    cout << "Cliente com o ID informado não encontrado." << endl;
+                }
+                cout << "Prima qualquer tecla...";
+                _getch();
+            }
             break;
         case 8:
             cout << "Pressione qualquer tecla..." << endl;
@@ -92,5 +103,5 @@ void exibirMenu() {
 
         cout << endl;
 
-    } while (opcao != 7);
+    } while (opcao != 8);
 }
