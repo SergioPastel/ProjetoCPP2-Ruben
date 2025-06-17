@@ -37,7 +37,7 @@ private:
     double troco;                        // Troco a devolver
     time_t dataVenda;                    // Data da venda
     static int proximoId;                // Para gerar IDs automáticos
-
+	bool vendaSorteada = false;          // Indica se a venda foi sorteada
 public:
     // Construtores
     Venda();
@@ -48,7 +48,10 @@ public:
 
     // Métodos de checkout e pagamento
     void checkout(double valorEntregue);
+    //Set
+    void setVendaSorteada(bool sorteada);
 
+     
     // Getters
     int getIdVenda() const;
     Cliente getCliente() const;

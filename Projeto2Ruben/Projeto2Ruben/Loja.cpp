@@ -467,12 +467,26 @@ void Loja::efetuarVenda()
     // Checkout
     double total = venda.getTotalVenda();
     cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
-    double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
-    while (valorEntregue < total) {
-        cout << "Valor insuficiente. Tente novamente." << endl;
-        valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+
+    // Sorteio ANTES de pedir o valor ao cliente
+    srand((unsigned)time(0));
+    bool sorteada = (rand() % 2 == 0); // 25% de chance
+    venda.setVendaSorteada(sorteada);
+
+    if (sorteada) {
+        cout << "Parabéns! Sua venda foi sorteada e será gratuita!" << endl;
+        venda.checkout(0);
     }
-    venda.checkout(valorEntregue);
+    else {
+        double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+        while (valorEntregue < total) {
+            cout << "Valor insuficiente. Tente novamente." << endl;
+            valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+        }
+        venda.checkout(valorEntregue);
+    }
+
+
 
     // Imprimir talão
     system("cls");

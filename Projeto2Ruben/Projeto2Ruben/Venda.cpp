@@ -74,12 +74,29 @@ void Venda::adicionarProduto(const Produto& produto, int quantidade)
 	this->linhas.push_back(linha);
 }
 
+
+
 void Venda::checkout(double valorEntregue)
 {
-	this->valorEntregue = valorEntregue;
-	double total = this->getTotalVenda();
-	this->troco = this->valorEntregue - total;
+	if (vendaSorteada)
+	{
+		this->valorEntregue = 0;
+		this->troco = 0;
+		cout << "Parabéns! Sua venda foi sorteada e você não precisa pagar nada!" << endl;
+	}
+	else
+	{
+		this->valorEntregue = valorEntregue;
+		double total = getTotalVenda();
+		this->troco = this->valorEntregue - total;
+	}
 	this->dataVenda = time(0); // Atualiza data da venda
+}
+
+
+void Venda::setVendaSorteada(bool sorteada)
+{
+	this->vendaSorteada = sorteada;
 }
 
 int Venda::getIdVenda() const
@@ -127,8 +144,7 @@ double Venda::getTotalVenda() const
 
 void Venda::imprimirTalao() const
 {
-	
-	std::cout << "\033[47m\033[30m"; // Fundo branco (\033[47m), texto preto (\033[30m)
+	std::cout << "\033[47m\033[30m"; // Fundo branco, texto preto
 
 	cout << "------------------- TALAO DE COMPRA -------------------" << endl;
 	cout << "Fatura N.: " << this->idVenda << " | Data: " << ctime(&this->dataVenda);
@@ -146,10 +162,17 @@ void Venda::imprimirTalao() const
 	}
 	cout << "-------------------------------------------------------" << endl;
 	cout << "Total: " << this->getTotalVenda() << " EUR" << endl;
-	cout << "Valor entregue: " << this->valorEntregue << " EUR" << endl;
-	cout << "Troco: " << this->troco << " EUR" << endl;
-	cout << "-------------------------------------------------------" << endl;
-	
-	std::cout << "\033[0m"; // Reset para as cores padrão
 
+	if (vendaSorteada) {
+		cout << "VENDA SORTEADA: GRATUITA!" << endl;
+	}
+	else {
+		cout << "Valor entregue: " << this->valorEntregue << " EUR" << endl;
+		cout << "Troco: " << this->troco << " EUR" << endl;
+	}
+
+	cout << "-------------------------------------------------------" << endl;
+
+	std::cout << "\033[0m"; // Reset para as cores padrão
 }
+
