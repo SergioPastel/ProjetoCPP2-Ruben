@@ -3,20 +3,31 @@
   "WorkspaceRootPath": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Venda.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Venda.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Loja.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 1\\ProjetoC-Ruben\\Final.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Common.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -31,19 +42,8 @@
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Funcoes.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Produto.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Cliente.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|solutionrelative:Projeto2Ruben\\Cliente.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 1\\ProjetoC-Ruben\\Final.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75FD1E0C-A41D-4BE3-8011-F731BC698F15}|Projeto2Ruben\\Projeto2Ruben.vcxproj|C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Validacoes.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -65,7 +65,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,7 +73,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Funcoes.h",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Funcoes.h",
@@ -85,7 +85,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "Funcoes.cpp",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Funcoes.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Funcoes.cpp",
@@ -97,51 +97,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Loja.h",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Loja.h",
               "ToolTip": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.h",
               "RelativeToolTip": "Projeto2Ruben\\Loja.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-13T14:11:43.462Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Loja.cpp",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Loja.cpp",
               "ToolTip": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Loja.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Loja.cpp",
-              "ViewState": "AgIAANEBAAAAAAAAAAAAwNkBAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAOMBAAAAAAAAAAAnwPEBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T21:26:17.019Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Produto.cpp",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Produto.cpp",
               "ToolTip": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Produto.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Produto.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-12T21:26:17.285Z"
+              "WhenOpened": "2025-06-12T21:26:17.285Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Venda.h",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Venda.h",
               "ToolTip": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.h",
               "RelativeToolTip": "Projeto2Ruben\\Venda.h",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-06-12T21:26:17.296Z",
               "EditorCaption": ""
@@ -154,14 +155,14 @@
               "RelativeDocumentMoniker": "Projeto2Ruben\\Venda.cpp",
               "ToolTip": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Venda.cpp",
               "RelativeToolTip": "Projeto2Ruben\\Venda.cpp",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAAE4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-12T21:26:16.769Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Common.h",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Common.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Common.h",
@@ -169,22 +170,20 @@
               "RelativeToolTip": "Projeto2Ruben\\Common.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-06-12T21:26:16.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-12T21:26:16.859Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "Final.cpp",
               "DocumentMoniker": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 1\\ProjetoC-Ruben\\Final.cpp",
               "ToolTip": "E:\\ATEC - SSD\\Programa\u00E7\u00E3o\\C\u002B\u002B\\Projetos\\Projeto de avalia\u00E7\u00E3o 1\\ProjetoC-Ruben\\Final.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-06-16T18:58:03.666Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Cliente.cpp",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.cpp",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Cliente.cpp",
@@ -192,11 +191,12 @@
               "RelativeToolTip": "Projeto2Ruben\\Cliente.cpp",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAD0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-06-12T21:26:16.857Z"
+              "WhenOpened": "2025-06-12T21:26:16.857Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Cliente.h",
               "DocumentMoniker": "C:\\Users\\diego\\Visual Studio\\Git\\Git\\ProjetoCPP2-Ruben\\Projeto2Ruben\\Projeto2Ruben\\Cliente.h",
               "RelativeDocumentMoniker": "Projeto2Ruben\\Cliente.h",

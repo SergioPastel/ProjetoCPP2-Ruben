@@ -21,6 +21,7 @@ public:
 
 	// Métodos		
 	void mostrarEstoque();
+	void mostrarEstoqueComPrecoVenda(); // Mostra o estoque com o preço de venda calculado
 	void checarProdutoEstoque(int, Produto*&);
 	void removerProduto();
 	void adicionarProduto();

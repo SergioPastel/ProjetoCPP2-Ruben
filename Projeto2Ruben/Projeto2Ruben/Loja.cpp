@@ -46,6 +46,31 @@ void Loja::mostrarEstoque() {
     cout << "---------------------------------------------------------------------------" << endl;
 }
 
+void Loja::mostrarEstoqueComPrecoVenda() {
+    cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
+    cout << left << setw(5) << "ID" << "| "
+        << left << setw(30) << "Nome do Produto" << "| "
+        << left << setw(6) << "Qtd." << "| "
+        << right << setw(18) << "Preco Venda (EUR)" << endl;
+    cout << "---------------------------------------------------------------------------" << endl;
+    bool estoqueVazioOuZerado = true;
+    for (const Produto& p : this->Produtos) {
+        if (p.getQuantidade() > 0) {
+            double precoVenda = p.getPreco() * 1.3;
+            cout << left << setw(5) << p.getId() << "| "
+                << left << setw(30) << p.getNome() << "| "
+                << left << setw(6) << p.getQuantidade() << "| "
+                << right << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << endl;
+            estoqueVazioOuZerado = false;
+        }
+    }
+    if (estoqueVazioOuZerado) {
+        cout << "O estoque está vazio ou todos os produtos têm quantidade 0." << endl;
+    }
+    cout << "---------------------------------------------------------------------------" << endl;
+}
+
+
 //função para verificar se o produto escolhido tem no estoque.
 void Loja::checarProdutoEstoque(int idProduto, Produto*& produtoSelecionado) {
     //percorre o estoque e se encontrar o produto no estoque, guarda o vetor no ponteiro.
@@ -379,7 +404,7 @@ void Loja::efetuarVenda()
     char adicionarMais;
 	bool produtoAdicionado = false;
 
-    mostrarEstoque();
+    mostrarEstoqueComPrecoVenda();
     do {        
         int idProduto = validacaoInt("Insira o ID do produto: ");
         Produto* produtoSelecionado = nullptr;
@@ -470,7 +495,7 @@ void Loja::efetuarVenda()
 
     // Sorteio ANTES de pedir o valor ao cliente
     srand((unsigned)time(0));
-    bool sorteada = (rand() % 2 == 0); // 25% de chance
+    bool sorteada = (rand() % 50 == 0); 
     venda.setVendaSorteada(sorteada);
 
     if (sorteada) {

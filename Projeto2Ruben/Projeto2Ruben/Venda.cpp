@@ -65,7 +65,7 @@ Venda::Venda(const Cliente& cliente)
 
 void Venda::adicionarProduto(const Produto& produto, int quantidade)
 {
-	double precoUnitario = produto.getPreco();
+	double precoUnitario = produto.getPreco() * 1.3; // 30% acima do custo
 	double precoSemIVA = precoUnitario * quantidade;
 	double iva = precoSemIVA * 0.23; // IVA de 23%
 	double totalComIVA = precoSemIVA + iva;
