@@ -22,7 +22,10 @@ void exibirMenu() {
 		{5, "Adicionar Clientes"},
 		{6, "Alterar Clientes"},
         {7, "Remover Clientes"},
-        {8, "Sair"}
+        {8, "Sair"},
+		{9, "Relatório de estoque com estoque total" },
+		{10, "Relatório de vendas por produto" },
+		{11, "Relatório total de vendas"}
     };
 
     // Definir as larguras das colunas
@@ -96,6 +99,13 @@ void exibirMenu() {
             _getch();
             exit(0); 
             break;
+		case 9:
+			system("cls");
+            l.relatorioEstoqueTotal();
+			cout << "Prima qualquer tecla...";
+			_getch();
+			break;
+				
         default:
             cout << "Opcao invalida! Tente novamente." << endl;
             _getch();

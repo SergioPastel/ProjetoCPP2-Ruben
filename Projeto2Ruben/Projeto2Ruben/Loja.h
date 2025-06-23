@@ -35,4 +35,8 @@ public:
 
 	void efetuarVenda(); // Processo completo de venda
 	void adicionarVenda(const Venda& venda); // Adiciona venda ao vetor circular
+	void relatorioEstoqueTotal();
+	void relatorioVendasPorProduto(const string& nomeProduto);
+	void relatorioTotalVendas();
+
 };

@@ -3,6 +3,7 @@
 #include "Venda.h"
 #include "Produto.h"
 #include "Cliente.h"
+#include <map>
 
 
 Loja::Loja() {
@@ -376,18 +377,106 @@ void Loja::adicionarCliente() {
 
 void Loja::adicionarVenda(const Venda& venda)
 {
-    {
-        // Limite de 100 vendas, sobrescreve as mais antigas
-        if (Vendas.size() < 100) {
-            Vendas.push_back(venda);
-        }
-        else {
-            static int pos = 0;
-            Vendas[pos] = venda;
-            pos = (pos + 1) % 100;
+    static int pos = 0; // Mantém a posição da próxima escrita (circular)
+    if (Vendas.size() < 100) {
+        Vendas.push_back(venda);
+    }
+    else {
+        Vendas[pos] = venda;
+    }
+    pos = (pos + 1) % 100; // Avança circularmente
+}
+
+void Loja::relatorioEstoqueTotal() {
+    int total = 0;
+    cout << "---------------- RELATÓRIO DE ESTOQUE ----------------" << endl;
+    for (const Produto& p : Produtos) {
+        cout << "ID: " << p.getId() << " | Nome: " << p.getNome() << " | Quantidade: " << p.getQuantidade() << endl;
+        total += p.getQuantidade();
+    }
+    cout << "------------------------------------------------------" << endl;
+    cout << "Total de itens em estoque: " << total << endl;
+}
+
+void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
+    int quantidadeVendida = 0;
+    double valorTotal = 0.0;
+    for (const Venda& venda : Vendas) {
+        for (const LinhaVenda& linha : venda.getLinhas()) {
+            if (linha.getProduto().getNome() == nomeProduto) {
+                quantidadeVendida += linha.getQuantidade();
+                valorTotal += linha.getTotalComIVA();
+            }
         }
     }
+    cout << "Relatório de vendas para o produto: " << nomeProduto << endl;
+    cout << "Quantidade vendida: " << quantidadeVendida << endl;
+    cout << "Valor total vendido (com IVA): " << fixed << setprecision(2) << valorTotal << " EUR" << endl;
 }
+
+
+void Loja::relatorioTotalVendas() {
+    map<string, int> vendasPorProduto;
+    map<string, double> lucroPorProduto;
+    map<int, double> valorPorCliente;
+    double totalVendas = 0.0;
+
+    for (const Venda& venda : Vendas) {
+        totalVendas += venda.getTotalVenda();
+        int idCliente = venda.getCliente().getId();
+        valorPorCliente[idCliente] += venda.getTotalVenda();
+
+        for (const LinhaVenda& linha : venda.getLinhas()) {
+            string nome = linha.getProduto().getNome();
+            vendasPorProduto[nome] += linha.getQuantidade();
+            double precoCusto = linha.getProduto().getPreco(); // preço de custo
+            double precoVenda = precoCusto * 1.3;
+            double lucro = (precoVenda - precoCusto) * linha.getQuantidade();
+            lucroPorProduto[nome] += lucro;
+        }
+    }
+
+    // Produto mais e menos vendido
+    string maisVendido, menosVendido;
+    int maxQtd = -1, minQtd = INT_MAX;
+    for (const auto& par : vendasPorProduto) {
+        if (par.second > maxQtd) {
+            maxQtd = par.second;
+            maisVendido = par.first;
+        }
+        if (par.second < minQtd) {
+            minQtd = par.second;
+            menosVendido = par.first;
+        }
+    }
+
+    // Cliente que mais comprou
+    int idClienteTop = -1;
+    double maiorValor = 0.0;
+    for (const auto& par : valorPorCliente) {
+        if (par.second > maiorValor) {
+            maiorValor = par.second;
+            idClienteTop = par.first;
+        }
+    }
+
+    cout << "---------------- RELATÓRIO DE VENDAS ----------------" << endl;
+    cout << "Total de vendas (com IVA): " << fixed << setprecision(2) << totalVendas << " EUR" << endl;
+    cout << "Produto mais vendido: " << maisVendido << " (" << maxQtd << " unidades)" << endl;
+    cout << "Produto menos vendido: " << menosVendido << " (" << minQtd << " unidades)" << endl;
+    cout << "Lucro do produto mais vendido: " << fixed << setprecision(2) << lucroPorProduto[maisVendido] << " EUR" << endl;
+    if (idClienteTop != -1) {
+        for (const Cliente& c : Clientes) {
+            if (c.getId() == idClienteTop) {
+                cout << "Cliente que mais comprou: " << c.getNome() << " (ID: " << c.getId() << ") - " << maiorValor << " EUR" << endl;
+                break;
+            }
+        }
+    }
+    cout << "-----------------------------------------------------" << endl;
+}
+
+
 
 void Loja::efetuarVenda()
 {
