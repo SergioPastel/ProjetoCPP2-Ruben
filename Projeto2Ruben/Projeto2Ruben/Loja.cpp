@@ -402,8 +402,8 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
     int quantidadeVendida = 0;
     double valorTotal = 0.0;
     for (const Venda& venda : Vendas) {
-        for (const LinhaVenda& linha : venda.getLinhas()) {
-            if (linha.getProduto().getNome() == nomeProduto) {
+        for (const LinhaVenda& linha : venda.getLinhas()) {            
+            if (toMinuscula(linha.getProduto().getNome()) == toMinuscula(nomeProduto)) {
                 quantidadeVendida += linha.getQuantidade();
                 valorTotal += linha.getTotalComIVA();
             }
