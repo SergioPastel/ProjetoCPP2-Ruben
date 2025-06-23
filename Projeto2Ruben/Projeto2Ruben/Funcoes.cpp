@@ -12,6 +12,7 @@ string toMinuscula(string str) {
 //função menu
 void exibirMenu() {
     int opcao;
+    string input;
     Loja l;
 
     vector<pair<int, string>> menuOpcoes = {
@@ -105,7 +106,21 @@ void exibirMenu() {
 			cout << "Prima qualquer tecla...";
 			_getch();
 			break;
-				
+        case 10:        
+            system("cls");
+            l.mostrarEstoque();
+            cout << "Insira o nome do produto que deseja ver: ";
+            getline(cin, input);
+            l.relatorioVendasPorProduto(input);
+            cout << "Prima qualquer tecla...";
+            _getch();
+            break;
+        case 11:
+            system("cls");
+            l.relatorioTotalVendas();
+            cout << "Prima qualquer tecla...";
+            _getch();
+            break;
         default:
             cout << "Opcao invalida! Tente novamente." << endl;
             _getch();

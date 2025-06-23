@@ -416,10 +416,21 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
 
 
 void Loja::relatorioTotalVendas() {
+    if (Vendas.empty()) {
+        cout << "---------------- RELATÓRIO DE VENDAS ----------------" << endl;
+        cout << "Nenhuma venda foi realizada ainda." << endl;
+        cout << "-----------------------------------------------------" << endl;
+        return;
+    }
+
     map<string, int> vendasPorProduto;
     map<string, double> lucroPorProduto;
     map<int, double> valorPorCliente;
     double totalVendas = 0.0;
+
+    // Garantir que todos os produtos estejam registrados mesmo com 0 vendas
+    for (const Produto& p : Produtos)
+        vendasPorProduto[p.getNome()] = 0;
 
     for (const Venda& venda : Vendas) {
         totalVendas += venda.getTotalVenda();
@@ -429,28 +440,34 @@ void Loja::relatorioTotalVendas() {
         for (const LinhaVenda& linha : venda.getLinhas()) {
             string nome = linha.getProduto().getNome();
             vendasPorProduto[nome] += linha.getQuantidade();
-            double precoCusto = linha.getProduto().getPreco(); // preço de custo
+            double precoCusto = linha.getProduto().getPreco();
             double precoVenda = precoCusto * 1.3;
             double lucro = (precoVenda - precoCusto) * linha.getQuantidade();
             lucroPorProduto[nome] += lucro;
         }
     }
 
-    // Produto mais e menos vendido
-    string maisVendido, menosVendido;
+    vector<string> maisVendidos, menosVendidos;
     int maxQtd = -1, minQtd = INT_MAX;
+
     for (const auto& par : vendasPorProduto) {
         if (par.second > maxQtd) {
             maxQtd = par.second;
-            maisVendido = par.first;
+            maisVendidos = { par.first };
         }
+        else if (par.second == maxQtd) {
+            maisVendidos.push_back(par.first);
+        }
+
         if (par.second < minQtd) {
             minQtd = par.second;
-            menosVendido = par.first;
+            menosVendidos = { par.first };
+        }
+        else if (par.second == minQtd) {
+            menosVendidos.push_back(par.first);
         }
     }
 
-    // Cliente que mais comprou
     int idClienteTop = -1;
     double maiorValor = 0.0;
     for (const auto& par : valorPorCliente) {
@@ -462,19 +479,34 @@ void Loja::relatorioTotalVendas() {
 
     cout << "---------------- RELATÓRIO DE VENDAS ----------------" << endl;
     cout << "Total de vendas (com IVA): " << fixed << setprecision(2) << totalVendas << " EUR" << endl;
-    cout << "Produto mais vendido: " << maisVendido << " (" << maxQtd << " unidades)" << endl;
-    cout << "Produto menos vendido: " << menosVendido << " (" << minQtd << " unidades)" << endl;
-    cout << "Lucro do produto mais vendido: " << fixed << setprecision(2) << lucroPorProduto[maisVendido] << " EUR" << endl;
+
+    cout << "Produto(s) mais vendido(s): ";
+    for (const string& nome : maisVendidos) cout << nome << " ";
+    cout << "(" << maxQtd << " unidades)" << endl;
+
+    cout << "Produto(s) menos vendido(s): ";
+    for (const string& nome : menosVendidos) cout << nome << " | ";
+    cout << "(" << minQtd << " unidades)" << endl;
+
+    cout << "Lucro do produto mais vendido: " << fixed << setprecision(2)
+        << lucroPorProduto[maisVendidos[0]] << " EUR" << endl;
+
     if (idClienteTop != -1) {
         for (const Cliente& c : Clientes) {
             if (c.getId() == idClienteTop) {
-                cout << "Cliente que mais comprou: " << c.getNome() << " (ID: " << c.getId() << ") - " << maiorValor << " EUR" << endl;
+                cout << "Cliente que mais comprou: " << c.getNome()
+                    << " (ID: " << c.getId() << ") - " << maiorValor << " EUR" << endl;
                 break;
             }
         }
     }
+    else {
+        cout << "Nenhum cliente realizou compras." << endl;
+    }
+
     cout << "-----------------------------------------------------" << endl;
 }
+
 
 
 
