@@ -429,21 +429,58 @@ void Loja::relatorioEstoqueTotal() {
 }
 
 void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
+    // Verifica se o produto existe na lista da loja
+    bool produtoExiste = false;
+    for (const Produto& p : Produtos) {
+        if (toMinuscula(p.getNome()) == toMinuscula(nomeProduto)) {
+            produtoExiste = true;
+            break;
+        }
+    }
+
+    if (!produtoExiste) {
+        cout << "Erro: O produto " << nomeProduto << " não existe no sistema." << endl;
+        return;
+    }
+
+    // Se o produto existe, prossegue com o relatório
     int quantidadeVendida = 0;
     double valorTotal = 0.0;
-    
-    for (const Venda& venda : Vendas) {
-        for (const LinhaVenda& linha : venda.getLinhas()) {            
+    bool encontrou = false;
+
+    cout << "Relatório de vendas para o produto: " << nomeProduto << endl;
+
+    for (size_t i = 0; i < Vendas.size(); ++i) {
+        const Venda& venda = Vendas[i];
+
+        for (const LinhaVenda& linha : venda.getLinhas()) {
             if (toMinuscula(linha.getProduto().getNome()) == toMinuscula(nomeProduto)) {
-                quantidadeVendida += linha.getQuantidade();
-                valorTotal += linha.getTotalComIVA();
+                int qtd = linha.getQuantidade();
+                double totalLinha = linha.getTotalComIVA();
+
+                cout << "\nVenda " << (i + 1)
+                    << " - Cliente: " << venda.getCliente().getNome()
+                    << " (ID: " << venda.getCliente().getId() << ")" << endl;
+
+                cout << "  Quantidade: " << qtd
+                    << ", Total com IVA: " << fixed << setprecision(2)
+                    << totalLinha << " EUR" << endl;
+
+                quantidadeVendida += qtd;
+                valorTotal += totalLinha;
+                encontrou = true;
+                break;
             }
         }
     }
-    logotipo();
-    cout << endl;
-    cout << "Relatório de vendas para o produto: " << nomeProduto << endl;
-    cout << "Quantidade vendida: " << quantidadeVendida << endl;
+
+    if (!encontrou) {
+        cout << "Nenhuma venda encontrada para esse produto." << endl;
+        return;
+    }
+
+    cout << "\nResumo:" << endl;
+    cout << "Quantidade total vendida: " << quantidadeVendida << endl;
     cout << "Valor total vendido (com IVA): " << fixed << setprecision(2) << valorTotal << " EUR" << endl;
 }
 
@@ -543,54 +580,73 @@ void Loja::relatorioTotalVendas() {
 }
 
 
-
-
-
-
 void Loja::efetuarVenda()
 {
     string input;
     char opt;
     Cliente* cliente;
 
+    system("cls");
+    cout << "************ EFETUAR VENDA ************" << endl;
+
     Venda venda;
 
     // Seleção de produtos
     char adicionarMais;
-	bool produtoAdicionado = false;
+    bool produtoAdicionado = false;
 
     mostrarEstoqueComPrecoVenda();
-    do {        
+    do {
+        // Escolhe um produto
         int idProduto = validacaoInt("Insira o ID do produto: ");
         Produto* produtoSelecionado = nullptr;
         checarProdutoEstoque(idProduto, produtoSelecionado);
 
+        // Assegura-se de que o produto existe
         if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
-            cout << "Produto inválido ou sem estoque." << endl;
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpa o buffer de entrada
-
+            cout << "Produto inválido ou sem estoque.\n";
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {
-            int quantidade = validacaoInt("Quantidade a comprar: ");
-            if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
-                venda.adicionarProduto(*produtoSelecionado, quantidade);                
-                cout << "Produto adicionado a venda." << endl;
-				produtoAdicionado = true; // Marca que pelo menos um produto foi adicionado
+            // Checa se o produto já foi inserido na venda
+            bool produtoJaExiste = false;
+            for (auto const& linha : venda.getLinhas()) {
+                if (linha.getProduto().getId() == produtoSelecionado->getId()) {
+                    produtoJaExiste = true;
+                    break;
+                }
+            }
+
+            if (produtoJaExiste) {
+                cout << "Este produto já foi inserido na venda!\n";
             }
             else {
-                cout << "Quantidade invalida." << endl;
+                // Recebe a quantidade e adiciona o produto
+                int quantidade = validacaoInt("Quantidade a comprar: ");
+                if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
+                    venda.adicionarProduto(*produtoSelecionado, quantidade);
+                    cout << "Produto adicionado à venda.\n";
+                    produtoAdicionado = true;
+                }
+                else {
+                    cout << "Quantidade inválida.\n";
+                }
             }
         }
+
+        // 5) ask to loop
         cout << "Adicionar mais produtos? (Y/N): ";
-        getline(cin, input);
-        adicionarMais = input.empty() ? 'n' : input[0];
+        string line;
+        std::getline(cin, line);
+        adicionarMais = line.empty() ? 'n' : line[0];
+
     } while (adicionarMais == 'y' || adicionarMais == 'Y');
 
     if (!produtoAdicionado)
     {
         cout << "Nenhum produto válido foi adicionado. Venda cancelada!" << endl;
-		_getch();
-		return;
+        _getch();
+        return;
     }
 
     // Selecionar cliente
@@ -612,14 +668,14 @@ void Loja::efetuarVenda()
             if (!cliente)
             {
                 cout << "ID de cliente inválido. Tente novamente ou adicione um novo cliente." << endl;
-				cout << "Deseja tentar novamente? (Y/N): ";
-				getline(cin, input);
-				char tentarNovamente = input.empty() ? 'n' : input[0];
+                cout << "Deseja tentar novamente? (Y/N): ";
+                getline(cin, input);
+                char tentarNovamente = input.empty() ? 'n' : input[0];
                 if (tentarNovamente == 'n' || tentarNovamente == 'N')
                 {
                     cout << "Venda cancelada. " << endl;
-					_getch();
-					return; // Cancela a venda se o cliente não for selecionado
+                    _getch();
+                    return; // Cancela a venda se o cliente não for selecionado
                 }
             }
         } while (!cliente);
@@ -650,7 +706,7 @@ void Loja::efetuarVenda()
 
     // Sorteio ANTES de pedir o valor ao cliente
     srand((unsigned)time(0));
-    bool sorteada = (rand() % 50 == 0); 
+    bool sorteada = (rand() % 50 == 0);
     venda.setVendaSorteada(sorteada);
 
     if (sorteada) {
