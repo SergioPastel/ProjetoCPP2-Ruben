@@ -3,6 +3,8 @@
 #include "Venda.h"
 #include "Produto.h"
 #include "Cliente.h"
+#include "Validacoes.h"
+#include "Funcoes.h"
 #include <map>
 
 #define RESET   "\033[0m" // Reseta a cor para o padrão.

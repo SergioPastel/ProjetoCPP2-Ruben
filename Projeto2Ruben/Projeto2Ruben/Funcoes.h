@@ -6,3 +6,6 @@
 
 string toMinuscula(string);
 void exibirMenu();
+void submenuEstoque(Loja&);
+void submenuClientes(Loja&);
+void submenuRelatorios(Loja&);

@@ -12,5 +12,3 @@
 #include <vector>
 #include <algorithm> // adicionador para verificar a igualdade entre strings: transform e tolower
 #include <limits> // Necessário para as funções de validações
-#include "Validacoes.h"
-#include "Funcoes.h"

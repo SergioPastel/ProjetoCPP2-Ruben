@@ -1,9 +1,10 @@
 ﻿#include "Common.h"
+#include "Validacoes.h"
+#include "Funcoes.h"
 #include "Loja.h"
 
 #define CYAN    "\033[36m" // Define a cor ciano.
 #define RESET   "\033[0m" // Reseta a cor para o padrão.
-void submenuRelatorios(Loja& l);
 
 using namespace std;
 
@@ -20,20 +21,13 @@ void exibirMenu() {
     string input;
     Loja l;
 	
-	
-	
     vector<pair<int, string>> menuOpcoes = {
     {1, "Efetuar Venda"},
-    {2, "Criar Novo / Atualizar Artigo"},
-    {3, "Excluir Produto"},
-    {4, "Exibir Stock"},
-    {5, "Adicionar Clientes"},
-    {6, "Alterar Clientes"},
-    {7, "Remover Clientes"},
-    {8, "Relatórios"},
-    {9, "Sair"}
+    {2, "Gestao de Estoque"},
+    {3, "Gestao de Clientes"},
+    {4, "Relatórios"},
+    {0, "Sair"}
     };
-
 
 
     // Definir as larguras das colunas
@@ -63,35 +57,92 @@ void exibirMenu() {
         opcao = validacaoInt("Escolha uma opcao: ");
         switch (opcao) {
 		case 1: 
-            l.efetuarVenda();
-            // chamar funcao de venda aqui
-            // venda();
+            // chamar funcao de venda aqui 
+            l.efetuarVenda();                    
             break;
         case 2: 
-            // chamar funcao de criacao
-
-            l.adicionarProduto();
+            submenuEstoque(l);
             break;
         case 3:
+            submenuClientes(l);
+        case 4:
+            submenuRelatorios(l);
+            break;
+        case 0:
+            cout << "Pressione qualquer tecla..." << endl;
+            _getch();
+            break;
+        default:
+            cout << "Opcao invalida! Tente novamente." << endl;
+            _getch();
+        }
+        cout << endl;
+
+    } while (opcao != 0);
+}
+
+void submenuEstoque(Loja& l) {
+    int opcao;
+    string input;
+    do {
+        system("cls");
+        l.logotipo();
+        cout << "\n=========== GESTAO DE ESTOQUE ===========\n";
+        cout << "1 - Criar Novo / Atualizar Artigo\n";
+        cout << "2 - Excluir Artigo\n";
+        cout << "3 - Exibir Produtos\n";
+        cout << "0 - Voltar ao menu principal\n";
+        cout << "=============================================\n";
+        opcao = validacaoInt("Escolha uma opção: ");
+        switch (opcao) {
+        case 1:
+            // chamar funcao de criacao
+            l.adicionarProduto();
+            break;
+        case 2:
             // chamar funcao de eliminacao
             l.removerProduto();
             break;
-        case 4:
+        case 3:
             // chamar funcao mostrar estoque
+            system("cls");
             l.mostrarEstoque();
             cout << "Prima qualquer tecla...";
             _getch();
             break;
-        case 5:
+        case 0:
+            break;
+        default:
+            cout << "Opção inválida! Tente novamente." << endl;
+            _getch();
+        }
+    } while (opcao != 0);
+}
+
+void submenuClientes(Loja& l) {
+    int opcao;
+    string input;
+    do {
+        system("cls");
+        l.logotipo();
+        cout << "\n=========== GESTAO DE CLIENTES ===========\n";
+        cout << "1 - Adicionar clientes\n";
+        cout << "2 - Alterar clientes\n";
+        cout << "3 - Remover clientes\n";
+        cout << "0 - Voltar ao menu principal\n";
+        cout << "=============================================\n";
+        opcao = validacaoInt("Escolha uma opção: ");
+        switch (opcao) {
+        case 1:
             // chamar funcao adicionar cliente
             l.adicionarCliente();
             break;
-		case 6:
+        case 2:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
             l.alterarCliente(validacaoInt("Insira o ID do cliente que desejas alterar: "));
             break;
-        case 7:
+        case 3:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
             {
@@ -100,37 +151,30 @@ void exibirMenu() {
                 l.checarCliente(id, clientePtr);
                 if (clientePtr != nullptr) {
                     l.removerCliente(id);
-                } else {
+                }
+                else {
                     cout << "Cliente com o ID informado não encontrado." << endl;
                 }
                 cout << "Prima qualquer tecla...";
                 _getch();
             }
             break;
-        case 8:
-            submenuRelatorios(l);
+        case 0:
             break;
-        case 9:
-            cout << "Pressione qualquer tecla..." << endl;
-            _getch();
-            break;
-
         default:
-            cout << "Opcao invalida! Tente novamente." << endl;
+            cout << "Opção inválida! Tente novamente." << endl;
             _getch();
         }
-
-        cout << endl;
-
-    } while (opcao != 9);
+    } while (opcao != 0);
 }
+
 void submenuRelatorios(Loja& l) {
     int opcao;
     string input;
     do {
         system("cls");
         l.logotipo();
-        cout << "\n=========== SUBMENU DE RELATÓRIOS ===========\n";
+        cout << "\n=========== RELATÓRIOS ===========\n";
         cout << "1 - Relatório de estoque total\n";
         cout << "2 - Relatório de vendas por produto\n";
         cout << "3 - Relatório total de vendas\n";
