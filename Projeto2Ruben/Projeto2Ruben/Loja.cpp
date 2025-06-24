@@ -70,8 +70,9 @@ void Loja::mostrarEstoque() {
 }
 
 void Loja::mostrarEstoqueComPrecoVenda() {
-	logotipo();
+    logotipo();
     cout << endl;
+    cout << "************ EFETUAR VENDA ************" << endl;
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
         << left << setw(30) << "Nome do Produto" << "| "
@@ -551,9 +552,6 @@ void Loja::efetuarVenda()
     string input;
     char opt;
     Cliente* cliente;
-
-    system("cls");
-    cout << "************ EFETUAR VENDA ************" << endl;
 
     Venda venda;
 
