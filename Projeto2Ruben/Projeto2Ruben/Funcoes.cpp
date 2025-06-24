@@ -3,6 +3,8 @@
 
 #define CYAN    "\033[36m" // Define a cor ciano.
 #define RESET   "\033[0m" // Reseta a cor para o padrão.
+void submenuRelatorios(Loja& l);
+
 using namespace std;
 
 // Função para converter uma string para minúsculas
@@ -21,18 +23,18 @@ void exibirMenu() {
 	
 	
     vector<pair<int, string>> menuOpcoes = {
-        {1, "Efetuar Venda"},
-        {2, "Criar Novo / Atualizar Artigo"},
-        {3, "Excluir Produto"},
-        {4, "Exibir Stock"},
-		{5, "Adicionar Clientes"},
-		{6, "Alterar Clientes"},
-        {7, "Remover Clientes"},
-        {8, "Sair"},
-		{9, "Relatório de estoque com estoque total" },
-		{10, "Relatório de vendas por produto" },
-		{11, "Relatório total de vendas"}
+    {1, "Efetuar Venda"},
+    {2, "Criar Novo / Atualizar Artigo"},
+    {3, "Excluir Produto"},
+    {4, "Exibir Stock"},
+    {5, "Adicionar Clientes"},
+    {6, "Alterar Clientes"},
+    {7, "Remover Clientes"},
+    {8, "Relatórios"},
+    {9, "Sair"}
     };
+
+
 
     // Definir as larguras das colunas
     const int larguraID = 7;
@@ -106,17 +108,43 @@ void exibirMenu() {
             }
             break;
         case 8:
+            submenuRelatorios(l);
+            break;
+        case 9:
             cout << "Pressione qualquer tecla..." << endl;
             _getch();
-            exit(0); 
             break;
-		case 9:
-			system("cls");
+
+        default:
+            cout << "Opcao invalida! Tente novamente." << endl;
+            _getch();
+        }
+
+        cout << endl;
+
+    } while (opcao != 9);
+}
+void submenuRelatorios(Loja& l) {
+    int opcao;
+    string input;
+    do {
+        system("cls");
+        l.logotipo();
+        cout << "\n=========== SUBMENU DE RELATÓRIOS ===========\n";
+        cout << "1 - Relatório de estoque total\n";
+        cout << "2 - Relatório de vendas por produto\n";
+        cout << "3 - Relatório total de vendas\n";
+        cout << "0 - Voltar ao menu principal\n";
+        cout << "=============================================\n";
+        opcao = validacaoInt("Escolha uma opção: ");
+        switch (opcao) {
+        case 1:
+            system("cls");
             l.relatorioEstoqueTotal();
-			cout << "Prima qualquer tecla...";
-			_getch();
-			break;
-        case 10:        
+            cout << "Prima qualquer tecla...";
+            _getch();
+            break;
+        case 2:
             system("cls");
             l.mostrarEstoqueComPrecoVenda();
             cout << "Insira o nome do produto que deseja ver: ";
@@ -125,18 +153,17 @@ void exibirMenu() {
             cout << "Prima qualquer tecla...";
             _getch();
             break;
-        case 11:
+        case 3:
             system("cls");
             l.relatorioTotalVendas();
             cout << "Prima qualquer tecla...";
             _getch();
             break;
+        case 0:
+            break;
         default:
-            cout << "Opcao invalida! Tente novamente." << endl;
+            cout << "Opção inválida! Tente novamente." << endl;
             _getch();
         }
-
-        cout << endl;
-
-    } while (opcao != 8);
+    } while (opcao != 0);
 }
