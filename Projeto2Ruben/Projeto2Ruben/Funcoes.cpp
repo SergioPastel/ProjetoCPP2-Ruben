@@ -1,6 +1,8 @@
 ﻿#include "Common.h"
 #include "Loja.h"
 
+#define CYAN    "\033[36m" // Define a cor ciano.
+#define RESET   "\033[0m" // Reseta a cor para o padrão.
 using namespace std;
 
 // Função para converter uma string para minúsculas
@@ -11,10 +13,13 @@ string toMinuscula(string str) {
 
 //função menu
 void exibirMenu() {
+	
     int opcao;
     string input;
     Loja l;
-
+	
+	
+	
     vector<pair<int, string>> menuOpcoes = {
         {1, "Efetuar Venda"},
         {2, "Criar Novo / Atualizar Artigo"},
@@ -40,7 +45,10 @@ void exibirMenu() {
 
     do {
         system("cls");
-
+        l.logotipo();
+		cout << endl;
+        cout << CYAN << "Desenvolvido por Diego Mayrinck e Sergio Sant'Anna" << RESET << endl;
+        cout << endl;
         cout << "------------------ MENU PRINCIPAL -----------------" << endl;
         cout << left << setw(larguraID) << "Opção" << " | " << left << setw(larguraOpcao) << "Descrição" << endl;
         cout << linhaSeparadora << endl;
@@ -52,12 +60,14 @@ void exibirMenu() {
         cout << linhaSeparadora << endl;
         opcao = validacaoInt("Escolha uma opcao: ");
         switch (opcao) {
-        case 1: l.efetuarVenda();
+		case 1: 
+            l.efetuarVenda();
             // chamar funcao de venda aqui
             // venda();
             break;
         case 2: 
             // chamar funcao de criacao
+
             l.adicionarProduto();
             break;
         case 3:

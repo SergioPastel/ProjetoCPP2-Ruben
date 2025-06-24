@@ -5,18 +5,38 @@
 #include "Cliente.h"
 #include <map>
 
+#define RESET   "\033[0m" // Reseta a cor para o padrão.
+#define RED     "\033[31m" // Define a cor vermelha.
+#define GREEN   "\033[32m" // Define a cor verde.
+#define CYAN    "\033[36m" // Define a cor ciano.
 
+void Loja::logotipo()
+{ cout << GREEN << R"(
+                                                          
+    ####    #####   #####     ####      ####    #####              ##     ##   ##   ####    ##   ##    ##     ####
+   ##  ##  ##   ##   ## ##     ##      ##  ##  ##   ##            ####    ###  ##    ##     ### ###   ####     ##
+  ##       ##   ##   ##  ##    ##     ##       ##   ##           ##  ##   #### ##    ##     #######  ##  ##    ##
+  ##       ##   ##   ##  ##    ##     ##       ##   ##           ##  ##   ## ####    ##     #######  ##  ##    ##
+  ##       ##   ##   ##  ##    ##     ##  ###  ##   ##           ######   ##  ###    ##     ## # ##  ######    ##   #
+   ##  ##  ##   ##   ## ##     ##      ##  ##  ##   ##           ##  ##   ##   ##    ##     ##   ##  ##  ##    ##  ##
+    ####    #####   #####     ####      #####   #####            ##  ##   ##   ##   ####    ##   ##  ##  ##   #######
+
+)" << RESET << endl;
+
+}
+
+	
 Loja::Loja() {
-    this->Produtos.emplace_back(1, "Placa Mãe Asus B550", 20, 85.00);
-    this->Produtos.emplace_back(2, "Processador Ryzen 5 5600X", 20, 140.00);
-    this->Produtos.emplace_back(3, "Memoria RAM 16GB DDR4", 20, 35.00);
-    this->Produtos.emplace_back(4, "Disco SSD 1TB NVMe", 20, 55.00);
-    this->Produtos.emplace_back(5, "Fonte 650W 80+ Bronze", 20, 45.00);
-    this->Produtos.emplace_back(6, "Placa Grafica RTX 3060", 20, 260.00);
-    this->Produtos.emplace_back(7, "Caixa Mid Tower", 20, 40.00);
-    this->Produtos.emplace_back(8, "Cooler CPU ARGB", 20, 25.00);
-    this->Produtos.emplace_back(9, "Monitor 24'' Full HD", 20, 90.00);
-    this->Produtos.emplace_back(10, "Suporte Monitor", 20, 8.00);
+    this->Produtos.emplace_back(1, "Coleira", 20, 20.00);
+    this->Produtos.emplace_back(2, "Ração Premium", 15, 89.90);
+    this->Produtos.emplace_back(3, "Brinquedo de Borracha", 30, 14.50);
+    this->Produtos.emplace_back(4, "Areia Higiênica", 25, 29.99);
+    this->Produtos.emplace_back(5, "Shampoo Pet", 18, 22.75);
+    this->Produtos.emplace_back(6, "Caminha Pequena", 10, 119.00);
+    this->Produtos.emplace_back(7, "Comedouro Inox", 22, 35.80);
+    this->Produtos.emplace_back(8, "Antipulgas", 12, 54.90);
+    this->Produtos.emplace_back(9, "Arranhador para Gatos", 8, 149.90);
+    this->Produtos.emplace_back(10, "Biscoito Canino", 40, 9.99);
 
     Clientes.push_back(Cliente(1, "João Silva", 912345678, "Rua A, 123"));
     Clientes.push_back(Cliente(2, "Maria Santos", 934567890, "Av. B, 456"));
@@ -25,6 +45,8 @@ Loja::Loja() {
 
 //funcao mostrar estoque
 void Loja::mostrarEstoque() {
+	logotipo();
+    cout << endl;
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
         << left << setw(30) << "Nome do Produto" << "| "
@@ -48,6 +70,8 @@ void Loja::mostrarEstoque() {
 }
 
 void Loja::mostrarEstoqueComPrecoVenda() {
+	logotipo();
+    cout << endl;
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
         << left << setw(30) << "Nome do Produto" << "| "
@@ -241,6 +265,8 @@ void Loja::checarCliente(int idCliente, Cliente*& clienteSelecionado) {
 void Loja::mostrarClientes()
 {
     system("cls");
+	logotipo();
+	cout << endl;
     cout << "------------------- CLIENTES -------------------" << endl;
     for (const auto& c : Clientes) {
         c.imprimirDados();
@@ -389,6 +415,9 @@ void Loja::adicionarVenda(const Venda& venda)
 
 void Loja::relatorioEstoqueTotal() {
     int total = 0;
+	system("cls");
+	logotipo();
+	cout << endl;
     cout << "---------------- RELATÓRIO DE ESTOQUE ----------------" << endl;
     for (const Produto& p : Produtos) {
         cout << "ID: " << p.getId() << " | Nome: " << p.getNome() << " | Quantidade: " << p.getQuantidade() << endl;
@@ -401,6 +430,7 @@ void Loja::relatorioEstoqueTotal() {
 void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
     int quantidadeVendida = 0;
     double valorTotal = 0.0;
+    
     for (const Venda& venda : Vendas) {
         for (const LinhaVenda& linha : venda.getLinhas()) {            
             if (toMinuscula(linha.getProduto().getNome()) == toMinuscula(nomeProduto)) {
@@ -409,6 +439,8 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
             }
         }
     }
+    logotipo();
+    cout << endl;
     cout << "Relatório de vendas para o produto: " << nomeProduto << endl;
     cout << "Quantidade vendida: " << quantidadeVendida << endl;
     cout << "Valor total vendido (com IVA): " << fixed << setprecision(2) << valorTotal << " EUR" << endl;
@@ -416,6 +448,8 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
 
 
 void Loja::relatorioTotalVendas() {
+    logotipo();
+    cout << endl;
     if (Vendas.empty()) {
         cout << "---------------- RELATÓRIO DE VENDAS ----------------" << endl;
         cout << "Nenhuma venda foi realizada ainda." << endl;
@@ -506,6 +540,8 @@ void Loja::relatorioTotalVendas() {
 
     cout << "-----------------------------------------------------" << endl;
 }
+
+
 
 
 
