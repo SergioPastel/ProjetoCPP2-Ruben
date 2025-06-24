@@ -28,9 +28,9 @@ void Loja::logotipo()
 	
 Loja::Loja() {
     this->Produtos.emplace_back(1, "Coleira", 20, 20.00);
-    this->Produtos.emplace_back(2, "Ração Premium", 15, 89.90);
-    this->Produtos.emplace_back(3, "Brinquedo de Borracha", 30, 14.50);
-    this->Produtos.emplace_back(4, "Areia Higiênica", 25, 29.99);
+    this->Produtos.emplace_back(2, "Racao Premium", 15, 89.90);
+    this->Produtos.emplace_back(3, "Caminha king size", 30, 14.50);
+    this->Produtos.emplace_back(4, "Areia Higienica", 25, 29.99);
     this->Produtos.emplace_back(5, "Shampoo Pet", 18, 22.75);
     this->Produtos.emplace_back(6, "Caminha Pequena", 10, 119.00);
     this->Produtos.emplace_back(7, "Comedouro Inox", 22, 35.80);
@@ -79,19 +79,17 @@ void Loja::mostrarEstoqueComPrecoVenda() {
         << left << setw(6) << "Qtd." << "| "
         << right << setw(18) << "Preco Venda (EUR)" << endl;
     cout << "---------------------------------------------------------------------------" << endl;
-    bool estoqueVazioOuZerado = true;
+    bool estoqueVazio = true;
     for (const Produto& p : this->Produtos) {
-        if (p.getQuantidade() > 0) {
-            double precoVenda = p.getPreco() * 1.3;
-            cout << left << setw(5) << p.getId() << "| "
-                << left << setw(30) << p.getNome() << "| "
-                << left << setw(6) << p.getQuantidade() << "| "
-                << right << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << endl;
-            estoqueVazioOuZerado = false;
-        }
+        double precoVenda = p.getPreco() * 1.3;
+        cout << left << setw(5) << p.getId() << "| "
+            << left << setw(30) << p.getNome() << "| "
+            << left << setw(6) << p.getQuantidade() << "| "
+            << right << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << endl;
+        estoqueVazio = false;
     }
-    if (estoqueVazioOuZerado) {
-        cout << "O estoque está vazio ou todos os produtos têm quantidade 0." << endl;
+    if (estoqueVazio) {
+        cout << "O estoque está vazio." << endl;
     }
     cout << "---------------------------------------------------------------------------" << endl;
 }
@@ -553,15 +551,18 @@ void Loja::relatorioTotalVendas() {
     cout << "Total de vendas (com IVA): " << fixed << setprecision(2) << totalVendas << " EUR" << endl;
 
     cout << "Produto(s) mais vendido(s): ";
-    for (const string& nome : maisVendidos) cout << nome << " ";
+    for (const string& nome : maisVendidos) cout << nome << " | ";
     cout << "(" << maxQtd << " unidades)" << endl;
 
     cout << "Produto(s) menos vendido(s): ";
     for (const string& nome : menosVendidos) cout << nome << " | ";
     cout << "(" << minQtd << " unidades)" << endl;
 
-    cout << "Lucro do produto mais vendido: " << fixed << setprecision(2)
-        << lucroPorProduto[maisVendidos[0]] << " EUR" << endl;
+    cout << "Lucro dos produtos mais vendidos:" << endl;
+    for (const string& nome : maisVendidos) {
+        cout << "  " << nome << ": " << fixed << setprecision(2) << lucroPorProduto[nome] << " EUR" << endl;
+    }
+
 
     if (idClienteTop != -1) {
         for (const Cliente& c : Clientes) {

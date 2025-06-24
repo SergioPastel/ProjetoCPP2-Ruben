@@ -118,7 +118,7 @@ void exibirMenu() {
 			break;
         case 10:        
             system("cls");
-            l.mostrarEstoque();
+            l.mostrarEstoqueComPrecoVenda();
             cout << "Insira o nome do produto que deseja ver: ";
             getline(cin, input);
             l.relatorioVendasPorProduto(input);
