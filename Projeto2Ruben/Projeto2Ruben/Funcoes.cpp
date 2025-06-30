@@ -65,6 +65,7 @@ void exibirMenu() {
             break;
         case 3:
             submenuClientes(l);
+            break;
         case 4:
             submenuRelatorios(l);
             break;
