@@ -160,8 +160,6 @@ void Loja::adicionarProduto() {
     // cin.ignore();
     getline(cin, nome); // Le a linha inteira, permitindo espacos nos nomes 
 
-    system("cls");
-
     int tamanho = Loja::Produtos.size(); // Pra não dar erro no VS code
 
     for (int i = 0; i < tamanho; i++) {
@@ -203,7 +201,6 @@ void Loja::adicionarProduto() {
             cout << "Nome inserido: " << nome << ". Deseja continuar? (Y/N): ";
             getline(cin, input);
             continuar = input[0];
-            system("cls");
         } while (continuar != 'y' && continuar != 'n' && continuar != 'Y' && continuar != 'N');
 
         if (continuar == 'n' || continuar == 'N') // Se o usuario não quiser prosseguir, retorne a função anterior
@@ -350,7 +347,6 @@ void Loja::removerCliente(int id) {
     }
     else if (cliente == nullptr) {
         cout << "Cliente com ID " << id << " não encontrado.\n";
-        _getch();
         return;
     }
     else {
@@ -362,8 +358,7 @@ void Loja::removerCliente(int id) {
         } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
 
         if (opt == 'n' || opt == 'N') {
-            cout << "Remoção cancelada.\n";
-            _getch();
+            cout << "Remoção cancelada.\n";            
             return;
         }
 
@@ -699,7 +694,7 @@ void Loja::efetuarVenda()
     cout << endl;
     for (LinhaVenda l : venda.getLinhas()) {       
         p = l.getProduto();
-        cout << p.getNome() << " | " << p.getPreco() << " EUR" << endl;
+        cout << p.getNome() << "(" << l.getQuantidade() << ") | " << l.getTotalComIVA() << " EUR" << endl;
     }
     cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
 
