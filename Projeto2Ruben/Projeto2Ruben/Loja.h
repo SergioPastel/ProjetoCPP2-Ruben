@@ -39,5 +39,4 @@ public:
 	void relatorioVendasPorProduto(const string& nomeProduto);
 	void relatorioTotalVendas();
 	void logotipo();
-
 };

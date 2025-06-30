@@ -1,8 +1,8 @@
 ﻿  Loja.cpp
-E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(103,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
-E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(167,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
-E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(217,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
-E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(255,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(101,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(165,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(215,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+E:\ATEC - SSD\Programação\C++\Projetos\Projeto de avaliação 2\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(253,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244: 'argumento': conversão de '_Ty' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         with
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xmemory(732,103): warning C4244:         [

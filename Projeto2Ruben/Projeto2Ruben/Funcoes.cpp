@@ -191,6 +191,7 @@ void Funcoes::submenuRelatorios(Loja& l) {
             break;
         case 2:
             system("cls");
+            l.logotipo();
             l.mostrarEstoqueComPrecoVenda();
             cout << "Insira o nome do produto que deseja ver: ";
             getline(cin, input);

@@ -72,9 +72,7 @@ void Loja::mostrarEstoque() {
 }
 
 void Loja::mostrarEstoqueComPrecoVenda() {
-    logotipo();
     cout << endl;
-    cout << "************ EFETUAR VENDA ************" << endl;
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
         << left << setw(30) << "Nome do Produto" << "| "
@@ -360,7 +358,7 @@ void Loja::removerCliente(int id) {
         do {
             cout << "Tem certeza que deseja remover o cliente '" << cliente->getNome() << "'? (Y/N): ";
             getline(cin, input);
-            opt = input.empty() ? 'n' : input[0];
+            opt = input[0];
         } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
 
         if (opt == 'n' || opt == 'N') {
@@ -589,8 +587,7 @@ void Loja::efetuarVenda()
     char opt;
     Cliente* cliente;
 
-    system("cls");
-    cout << "************ EFETUAR VENDA ************" << endl;
+    system("cls");    
 
     Venda venda;
 
@@ -598,6 +595,8 @@ void Loja::efetuarVenda()
     char adicionarMais;
     bool produtoAdicionado = false;
 
+    logotipo();
+    cout << "************ EFETUAR VENDA ************" << endl;
     mostrarEstoqueComPrecoVenda();
     do {
         // Escolhe um produto
@@ -637,11 +636,19 @@ void Loja::efetuarVenda()
             }
         }
 
-        // 5) ask to loop
-        cout << "Adicionar mais produtos? (Y/N): ";
-        string line;
-        std::getline(cin, line);
-        adicionarMais = line.empty() ? 'n' : line[0];
+        do {
+            cout << "Adicionar mais produtos? (Y/N): ";
+            getline(cin, input);
+            if (!input.empty()) {
+                adicionarMais = toupper(input[0]);
+            }
+            else {
+                adicionarMais = ' ';
+            }
+            if (adicionarMais != 'Y' && adicionarMais != 'N') {
+                cout << "Opção inválida! Digite apenas Y ou N." << endl;
+            }
+        } while (adicionarMais != 'Y' && adicionarMais != 'N');
 
     } while (adicionarMais == 'y' || adicionarMais == 'Y');
 
@@ -657,7 +664,7 @@ void Loja::efetuarVenda()
         mostrarClientes();
         cout << "Deseja adicionar um novo cliente? (Y/N): ";
         getline(cin, input);
-        opt = input.empty() ? 'n' : input[0];
+        opt = input[0];
     } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
 
     if (opt == 'Y' || opt == 'y') {
@@ -673,7 +680,7 @@ void Loja::efetuarVenda()
                 cout << "ID de cliente inválido. Tente novamente ou adicione um novo cliente." << endl;
                 cout << "Deseja tentar novamente? (Y/N): ";
                 getline(cin, input);
-                char tentarNovamente = input.empty() ? 'n' : input[0];
+                char tentarNovamente = input[0];
                 if (tentarNovamente == 'n' || tentarNovamente == 'N')
                 {
                     cout << "Venda cancelada. " << endl;
@@ -684,7 +691,30 @@ void Loja::efetuarVenda()
         } while (!cliente);
     }
 
-    venda.setCliente(*cliente);
+    venda.setCliente(*cliente);    
+
+    // Checkout
+    double total = venda.getTotalVenda();
+    Produto p; // Produto usado para fazer o checkout
+    cout << endl;
+    for (LinhaVenda l : venda.getLinhas()) {       
+        p = l.getProduto();
+        cout << p.getNome() << " | " << p.getPreco() << " EUR" << endl;
+    }
+    cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
+
+    do {
+        cout << endl << "Deseja prosseguir com a compra?(Y/N) ";
+        getline(cin, input);
+        opt = input[0];
+
+        if (opt == 'n' || opt == 'n') {
+            cout << "\nVenda cancelada";
+            _getch();
+            return;
+        }
+
+    } while (opt != 'y' && opt != 'Y' && opt != 'n' && opt != 'N');
 
     // Confirmar venda e atualizar estoque
     const auto& itensVendidos = venda.getLinhas();
@@ -702,10 +732,6 @@ void Loja::efetuarVenda()
             }
         }
     }
-
-    // Checkout
-    double total = venda.getTotalVenda();
-    cout << "Total a pagar (com IVA): " << fixed << setprecision(2) << total << " EUR" << endl;
 
     // Sorteio ANTES de pedir o valor ao cliente
     srand((unsigned)time(0));
