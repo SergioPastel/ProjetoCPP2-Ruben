@@ -2,9 +2,9 @@
 
 #include "Produto.h"
 #include "Cliente.h"
-#include "Venda.h" // Certifique-se de incluir o cabeçalho correto
+#include "Venda.h" 
 #include "Common.h"
-class Venda;
+
 using namespace std;
 
 class Loja

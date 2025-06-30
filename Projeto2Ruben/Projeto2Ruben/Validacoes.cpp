@@ -4,43 +4,43 @@
 using namespace std;
 
 // Função auxiliar para limpar o buffer de entrada e tratar erros
-void limparBufferEntrada() {
+void Validacoes::limparBufferEntrada() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 //função para tratar entrada inválida.
-void tratarErroEntrada() {
+void Validacoes::tratarErroEntrada() {
     cout << "Entrada inválida. Por favor, tente novamente.\n";
     cin.clear(); // Limpa os flags de erro
-    limparBufferEntrada(); // Descarta a entrada inválida
+    Validacoes::limparBufferEntrada(); // Descarta a entrada inválida
 }
 
 // Função para obter um float válido do usuário
-float obterFloat(const string& prompt) {// Usado em cin's para validar ints e retornar os valores se forem validos. Se não forem repete até serem.
+float Validacoes::obterFloat(const string& prompt) {// Usado em cin's para validar ints e retornar os valores se forem validos. Se não forem repete até serem.
     float valor;
     while (true) {
         cout << prompt;
         if (cin >> valor && valor > 0) {
-            limparBufferEntrada();
+            Validacoes::limparBufferEntrada();
             return valor;
         }
         else {
-            tratarErroEntrada();
+            Validacoes::tratarErroEntrada();
         }
     }
 }
 
-int validacaoInt(const string& prompt) { // Usado em cin's para validar ints e retornar os valores se forem validos. Se não forem repete até serem.
+int Validacoes::validacaoInt(const string& prompt) { // Usado em cin's para validar ints e retornar os valores se forem validos. Se não forem repete até serem.
     int n;
 
     while (true) {
         cout << prompt;
         if (cin >> n) {
-            limparBufferEntrada();
+            Validacoes::limparBufferEntrada();
             return n;
         }
         else {
-            tratarErroEntrada();
+            Validacoes::tratarErroEntrada();
         }
     }
 

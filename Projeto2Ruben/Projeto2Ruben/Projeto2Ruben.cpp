@@ -5,6 +5,6 @@
 int main() {
     setlocale(LC_ALL, "Portuguese");
 
-    exibirMenu();
+    Funcoes::exibirMenu();
 }
 

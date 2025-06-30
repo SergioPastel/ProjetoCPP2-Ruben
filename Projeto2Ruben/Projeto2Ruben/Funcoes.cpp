@@ -9,19 +9,19 @@
 using namespace std;
 
 // Função para converter uma string para minúsculas
-string toMinuscula(string str) {
+string Funcoes::toMinuscula(string str) {
     transform(str.begin(), str.end(), str.begin(), ::tolower);
     return str;
 }
 
 //função menu
-void exibirMenu() {
+void Funcoes::exibirMenu() {
 	
     int opcao;
     string input;
     Loja l;
 	
-    vector<pair<int, string>> menuOpcoes = {
+    vector<pair<int, string>> menuOpcoes = { // Menu de opções, usado para impressão das opções na tela
     {1, "Efetuar Venda"},
     {2, "Gestao de Estoque"},
     {3, "Gestao de Clientes"},
@@ -54,7 +54,7 @@ void exibirMenu() {
         }
 
         cout << linhaSeparadora << endl;
-        opcao = validacaoInt("Escolha uma opcao: ");
+        opcao = Validacoes::validacaoInt("Escolha uma opcao: ");
         switch (opcao) {
 		case 1: 
             // chamar funcao de venda aqui 
@@ -64,7 +64,7 @@ void exibirMenu() {
             submenuEstoque(l);
             break;
         case 3:
-            submenuClientes(l);
+            submenuClientes(l); 
             break;
         case 4:
             submenuRelatorios(l);
@@ -82,7 +82,7 @@ void exibirMenu() {
     } while (opcao != 0);
 }
 
-void submenuEstoque(Loja& l) {
+void Funcoes::submenuEstoque(Loja& l) {
     int opcao;
     string input;
     do {
@@ -94,7 +94,7 @@ void submenuEstoque(Loja& l) {
         cout << "3 - Exibir Produtos\n";
         cout << "0 - Voltar ao menu principal\n";
         cout << "=============================================\n";
-        opcao = validacaoInt("Escolha uma opção: ");
+        opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
             // chamar funcao de criacao
@@ -120,7 +120,7 @@ void submenuEstoque(Loja& l) {
     } while (opcao != 0);
 }
 
-void submenuClientes(Loja& l) {
+void Funcoes::submenuClientes(Loja& l) {
     int opcao;
     string input;
     do {
@@ -132,7 +132,7 @@ void submenuClientes(Loja& l) {
         cout << "3 - Remover clientes\n";
         cout << "0 - Voltar ao menu principal\n";
         cout << "=============================================\n";
-        opcao = validacaoInt("Escolha uma opção: ");
+        opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
             // chamar funcao adicionar cliente
@@ -141,13 +141,13 @@ void submenuClientes(Loja& l) {
         case 2:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
-            l.alterarCliente(validacaoInt("Insira o ID do cliente que desejas alterar: "));
+            l.alterarCliente(Validacoes::validacaoInt("Insira o ID do cliente que desejas alterar: "));
             break;
         case 3:
             // chamar funcao mostrar clientes
             l.mostrarClientes();
             {
-                int id = validacaoInt("Insira o ID do cliente que desejas remover: ");
+                int id = Validacoes::validacaoInt("Insira o ID do cliente que desejas remover: ");
                 Cliente* clientePtr = nullptr;
                 l.checarCliente(id, clientePtr);
                 if (clientePtr != nullptr) {
@@ -169,7 +169,7 @@ void submenuClientes(Loja& l) {
     } while (opcao != 0);
 }
 
-void submenuRelatorios(Loja& l) {
+void Funcoes::submenuRelatorios(Loja& l) {
     int opcao;
     string input;
     do {
@@ -181,7 +181,7 @@ void submenuRelatorios(Loja& l) {
         cout << "3 - Relatório total de vendas\n";
         cout << "0 - Voltar ao menu principal\n";
         cout << "=============================================\n";
-        opcao = validacaoInt("Escolha uma opção: ");
+        opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
             system("cls");

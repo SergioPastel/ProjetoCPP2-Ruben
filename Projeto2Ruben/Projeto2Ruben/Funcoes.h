@@ -2,10 +2,13 @@
 
 #include "Loja.h"
 
-// Definição de todas as funções "não validações/metodos" do programa
+// Declaração de funções utilitárias (não são validações ou métodos principais das classes)
 
-string toMinuscula(string);
-void exibirMenu();
-void submenuEstoque(Loja&);
-void submenuClientes(Loja&);
-void submenuRelatorios(Loja&);
+class Funcoes {
+	public:
+		static std::string toMinuscula(string);
+		static void exibirMenu();
+		static void submenuEstoque(Loja&);
+		static void submenuClientes(Loja&);
+		static void submenuRelatorios(Loja&);
+};

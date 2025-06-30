@@ -144,35 +144,89 @@ double Venda::getTotalVenda() const
 
 void Venda::imprimirTalao() const
 {
-	std::cout << "\033[47m\033[30m"; // Fundo branco, texto preto
+    system("cls");
+    const int largura = 80;
 
-	cout << "------------------- TALAO DE COMPRA -------------------" << endl;
-	cout << "Fatura N.: " << this->idVenda << " | Data: " << ctime(&this->dataVenda);
-	cout << "Cliente N.: " << this->getCliente().getId() << " | Nome: " << this->getCliente().getNome() << endl;
-	cout << "-------------------------------------------------------" << endl;
-	cout << left << setw(5) << "N." << setw(20) << "Produto" << setw(10) << "Qtd"
-		<< setw(12) << "Preco s/IVA" << setw(10) << "IVA" << setw(12) << "Total c/IVA" << endl;
-	for (const auto& linha : this->linhas) {
-		cout << left << setw(5) << linha.getNumeroLinha()
-			<< setw(20) << linha.getProduto().getNome()
-			<< setw(10) << linha.getQuantidade()
-			<< setw(12) << fixed << setprecision(2) << linha.getPrecoSemIVA()
-			<< setw(10) << linha.getIVA()
-			<< setw(12) << linha.getTotalComIVA() << endl;
-	}
-	cout << "-------------------------------------------------------" << endl;
-	cout << "Total: " << this->getTotalVenda() << " EUR" << endl;
+    std::cout << "\033[47m\033[30m"; // Fundo branco, texto preto
 
-	if (vendaSorteada) {
-		cout << "VENDA SORTEADA: GRATUITA!" << endl;
-	}
-	else {
-		cout << "Valor entregue: " << this->valorEntregue << " EUR" << endl;
-		cout << "Troco: " << this->troco << " EUR" << endl;
-	}
+    auto linhaBranca = [](int largura) {
+        std::cout << std::setfill(' ') << std::setw(largura) << " " << std::endl;
+        };
 
-	cout << "-------------------------------------------------------" << endl;
+    linhaBranca(largura);
+    cout << left << setw(largura) << setfill(' ') << "------------------- TALAO DE COMPRA -------------------" << endl;
 
-	std::cout << "\033[0m"; // Reset para as cores padrão
+    // Linha da fatura e data/hora
+    {
+        std::ostringstream oss;
+        std::string dataStr = ctime(&this->dataVenda);
+        if (!dataStr.empty() && dataStr.back() == '\n') dataStr.pop_back(); // Remove o \n do ctime
+        oss << "Fatura N.: " << this->idVenda << " | Data: " << dataStr;
+        std::string linha = oss.str();
+        if (linha.length() > largura) linha = linha.substr(0, largura); // Trunca se passar
+        cout << left << setw(largura) << setfill(' ') << linha << endl;
+    }
+
+    // Linha do cliente e nome
+    {
+        std::ostringstream oss;
+        oss << "Cliente N.: " << this->getCliente().getId() << " | Nome: " << this->getCliente().getNome();
+        std::string linha = oss.str();
+        if (linha.length() > largura) linha = linha.substr(0, largura); // Trunca se passar
+        cout << left << setw(largura) << setfill(' ') << linha << endl;
+    }
+
+    cout << left << setw(largura) << setfill(' ') << "--------------------------------------------------------------------------------" << endl;
+    {
+        std::ostringstream oss;
+        oss << left << setw(5) << "N."
+            << setw(22) << "Produto"
+            << right << setw(7) << "Qtd"
+            << right << setw(15) << "Preco s/IVA"
+            << right << setw(12) << "IVA"
+            << right << setw(15) << "Total c/IVA";
+        cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+    }
+    cout << left << setw(largura) << setfill(' ') << "--------------------------------------------------------------------------------" << endl;
+
+    for (const auto& linha : this->linhas) {
+        std::ostringstream oss;
+        oss << left << setw(5) << linha.getNumeroLinha()
+            << setw(22) << linha.getProduto().getNome()
+            << right << setw(7) << linha.getQuantidade()
+            << right << setw(15) << fixed << setprecision(2) << linha.getPrecoSemIVA()
+            << right << setw(12) << linha.getIVA()
+            << right << setw(15) << linha.getTotalComIVA();
+        cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+    }
+    cout << left << setw(largura) << setfill(' ') << "--------------------------------------------------------------------------------" << endl;
+
+    {
+        std::ostringstream oss;
+        oss << right << setw(largura - 20) << "Total: " << setw(12) << fixed << setprecision(2) << this->getTotalVenda() << " EUR";
+        cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+    }
+
+    if (vendaSorteada) {
+        std::ostringstream oss;
+        oss << right << setw(largura - 20) << "VENDA SORTEADA: GRATUITA!";
+        cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+    }
+    else {
+        {
+            std::ostringstream oss;
+            oss << right << setw(largura - 20) << "Valor entregue: " << setw(12) << this->valorEntregue << " EUR";
+            cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+        }
+        {
+            std::ostringstream oss;
+            oss << right << setw(largura - 20) << "Troco: " << setw(12) << this->troco << " EUR";
+            cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
+        }
+    }
+
+    cout << left << setw(largura) << setfill(' ') << "--------------------------------------------------------------------------------" << endl;
+    linhaBranca(largura);
+
+    std::cout << "\033[0m"; // Reset para as cores padrão
 }
-

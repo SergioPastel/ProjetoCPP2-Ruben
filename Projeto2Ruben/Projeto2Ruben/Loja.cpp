@@ -12,7 +12,7 @@
 #define GREEN   "\033[32m" // Define a cor verde.
 #define CYAN    "\033[36m" // Define a cor ciano.
 
-void Loja::logotipo()
+void Loja::logotipo() // O Logotipo está aqui pois poderiamos hipoteticamente ter mais de uma loja
 { cout << GREEN << R"(
                                                           
     ####    #####   #####     ####      ####    #####              ##     ##   ##   ####    ##   ##    ##     ####
@@ -29,15 +29,15 @@ void Loja::logotipo()
 
 	
 Loja::Loja() {
-    this->Produtos.emplace_back(1, "Coleira", 20, 20.00);
-    this->Produtos.emplace_back(2, "Racao Premium", 15, 89.90);
-    this->Produtos.emplace_back(3, "Caminha king size", 30, 14.50);
-    this->Produtos.emplace_back(4, "Areia Higienica", 25, 29.99);
-    this->Produtos.emplace_back(5, "Shampoo Pet", 18, 22.75);
-    this->Produtos.emplace_back(6, "Caminha Pequena", 10, 119.00);
-    this->Produtos.emplace_back(7, "Comedouro Inox", 22, 35.80);
-    this->Produtos.emplace_back(8, "Antipulgas", 12, 54.90);
-    this->Produtos.emplace_back(9, "Arranhador para Gatos", 8, 149.90);
+    this->Produtos.emplace_back(1, "Coleira", 20, 10.00);
+    this->Produtos.emplace_back(2, "Racao Premium", 15, 20.90);
+    this->Produtos.emplace_back(3, "Caminha king size", 30, 18.50);
+    this->Produtos.emplace_back(4, "Areia Higienica", 25, 8.99);
+    this->Produtos.emplace_back(5, "Shampoo Pet", 18, 9.75);
+    this->Produtos.emplace_back(6, "Caminha Pequena", 10, 12.00);
+    this->Produtos.emplace_back(7, "Comedouro Inox", 22, 6.80);
+    this->Produtos.emplace_back(8, "Antipulgas", 12, 60.90);
+    this->Produtos.emplace_back(9, "Arranhador para Gatos", 8, 50.90);
     this->Produtos.emplace_back(10, "Biscoito Canino", 40, 9.99);
 
     Clientes.push_back(Cliente(1, "João Silva", 912345678, "Rua A, 123"));
@@ -118,7 +118,7 @@ void Loja::removerProduto() {
     system("cls");
     this->mostrarEstoque();
 
-    idProduto = validacaoInt("Insira o ID do produto: ");
+    idProduto = Validacoes::validacaoInt("Insira o ID do produto: ");
 
     Produto* produtoSelecionado = nullptr; // Inicialmente não sabemos se o ID/Produto que o utilizador vai inserir existe, ent�o inicializamos um ponteiro nulo que é atualizado
     checarProdutoEstoque(idProduto, produtoSelecionado);
@@ -167,13 +167,13 @@ void Loja::adicionarProduto() {
     int tamanho = Loja::Produtos.size(); // Pra não dar erro no VS code
 
     for (int i = 0; i < tamanho; i++) {
-        if (toMinuscula(Produtos[i].getNome()) == toMinuscula(nome)) {  // Compara o nome do produto com cada item do estoque. Se encontrar um igual, deixa de adicionar e comea a alterar o produto existente
+        if (Funcoes::toMinuscula(Produtos[i].getNome()) == Funcoes::toMinuscula(nome)) {  // Compara o nome do produto com cada item do estoque. Se encontrar um igual, deixa de adicionar e comea a alterar o produto existente
             string input; // Necessario para receber a linha
             char opt; // Necessario para receber a opção sem encher o buffer
 
             cout << "PRODUTO - " << Produtos[i].imprimirDados();
             while (true) {
-                valorAdd = validacaoInt("Adicione ao stock (valor >= 0): "); // Altera a mensagem para o usuário
+                valorAdd = Validacoes::validacaoInt("Adicione ao stock (valor >= 0): "); // Altera a mensagem para o usuário
                 if (valorAdd >= 0) {
                     break;
                 }
@@ -189,7 +189,7 @@ void Loja::adicionarProduto() {
             } while (opt != 'y' && opt != 'n' && opt != 'Y' && opt != 'N');
 
             if (opt == 'y' || opt == 'Y') {
-                Produtos[i].setPreco(obterFloat("Insira o novo preço: "));
+                Produtos[i].setPreco(Validacoes::obterFloat("Insira o novo preço: "));
             }
 
             cout << "Artigo atualizado.";
@@ -217,13 +217,13 @@ void Loja::adicionarProduto() {
         p.setId(Produtos.size() + 1); // Id atribuido e um a mais do que o tamanho do estoque, que seria o ultimo id por default
 
         cout << "Nome do Produto: " << nome << endl;
-        p.setPreco(obterFloat("Insira o custo: "));
+        p.setPreco(Validacoes::obterFloat("Insira o custo: "));
         while (p.getPreco() <= 0) // Enquanto o user tentar dar valor 0 ou negativo, fica pedindo por novo valor
-            p.setPreco(obterFloat("Custo invalido. Insira um valor maior que 0: "));
+            p.setPreco(Validacoes::obterFloat("Custo invalido. Insira um valor maior que 0: "));
 
-        p.setQuantidade(validacaoInt("Insira a quantidade: "));
+        p.setQuantidade(Validacoes::validacaoInt("Insira a quantidade: "));
         while (p.getQuantidade() <= 0) // Enquanto o user tentar dar valor 0 ou negativo, fica pedindo por novo valor
-            p.setQuantidade(validacaoInt("Quantidade invalida. Insira um valor maior que 0: "));
+            p.setQuantidade(Validacoes::validacaoInt("Quantidade invalida. Insira um valor maior que 0: "));
 
         // Adiciona ao vetor e aumenta o tamanho do estoque para que mais adicoes sejam possiveis
         Produtos.push_back(p);
@@ -237,7 +237,7 @@ Cliente* Loja::selecionarCliente()
 {
     mostrarClientes();
     Cliente* cliente = nullptr;
-    int idCliente = validacaoInt("Insira o ID do cliente: ");
+    int idCliente = Validacoes::validacaoInt("Insira o ID do cliente: ");
 
     checarCliente(idCliente, cliente);
 
@@ -308,7 +308,7 @@ void Loja::alterarCliente(int id) {
 
         if (opt == 'y' || opt == 'Y') {
             int novoTel;  
-            novoTel = validacaoInt("Digite o novo numero do cliente: ");
+            novoTel = Validacoes::validacaoInt("Digite o novo numero do cliente: ");
             cliente->setTelefone(novoTel);
             alterado = true;
         }
@@ -395,7 +395,7 @@ void Loja::adicionarCliente() {
 
     cout << "Insira o nome do novo cliente: ";
     getline(cin, nome); // Le a linha inteira, permitindo espacos nos nomes
-    telefone = validacaoInt("Insira o numero de telefone: ");
+    telefone = Validacoes::validacaoInt("Insira o numero de telefone: ");
     cout << "Insira a morada: ";
     getline(cin, morada);
 
@@ -432,7 +432,7 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
     // Verifica se o produto existe na lista da loja
     bool produtoExiste = false;
     for (const Produto& p : Produtos) {
-        if (toMinuscula(p.getNome()) == toMinuscula(nomeProduto)) {
+        if (Funcoes::toMinuscula(p.getNome()) == Funcoes::toMinuscula(nomeProduto)) {
             produtoExiste = true;
             break;
         }
@@ -454,7 +454,7 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
         const Venda& venda = Vendas[i];
 
         for (const LinhaVenda& linha : venda.getLinhas()) {
-            if (toMinuscula(linha.getProduto().getNome()) == toMinuscula(nomeProduto)) {
+            if (Funcoes::toMinuscula(linha.getProduto().getNome()) == Funcoes::toMinuscula(nomeProduto)) {
                 int qtd = linha.getQuantidade();
                 double totalLinha = linha.getTotalComIVA();
 
@@ -601,7 +601,7 @@ void Loja::efetuarVenda()
     mostrarEstoqueComPrecoVenda();
     do {
         // Escolhe um produto
-        int idProduto = validacaoInt("Insira o ID do produto: ");
+        int idProduto = Validacoes::validacaoInt("Insira o ID do produto: ");
         Produto* produtoSelecionado = nullptr;
         checarProdutoEstoque(idProduto, produtoSelecionado);
 
@@ -625,7 +625,7 @@ void Loja::efetuarVenda()
             }
             else {
                 // Recebe a quantidade e adiciona o produto
-                int quantidade = validacaoInt("Quantidade a comprar: ");
+                int quantidade = Validacoes::validacaoInt("Quantidade a comprar: ");
                 if (quantidade > 0 && quantidade <= produtoSelecionado->getQuantidade()) {
                     venda.adicionarProduto(*produtoSelecionado, quantidade);
                     cout << "Produto adicionado à venda.\n";
@@ -717,10 +717,10 @@ void Loja::efetuarVenda()
         venda.checkout(0);
     }
     else {
-        double valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+        double valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
         while (valorEntregue < total) {
             cout << "Valor insuficiente. Tente novamente." << endl;
-            valorEntregue = obterFloat("Valor entregue pelo cliente: ");
+            valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
         }
         venda.checkout(valorEntregue);
     }
