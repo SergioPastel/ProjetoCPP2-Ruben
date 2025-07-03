@@ -169,6 +169,7 @@ void Loja::adicionarProduto() {
 
             cout << "PRODUTO - " << Produtos[i].imprimirDados();
             while (true) {
+                cout << endl; // Adiciona uma quebra de linha antes da mensagem
                 valorAdd = Validacoes::validacaoInt("Adicione ao stock (valor >= 0): "); // Altera a mensagem para o usuário
                 if (valorAdd >= 0) {
                     break;
@@ -739,7 +740,8 @@ void Loja::efetuarVenda()
     }
     else {
         double valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
-        while (valorEntregue < total) {
+		const double EPSILON = 0.01; // Tolerância para comparação de floats
+        while (valorEntregue + EPSILON < total) {
             cout << "Valor insuficiente. Tente novamente." << endl;
             valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
         }

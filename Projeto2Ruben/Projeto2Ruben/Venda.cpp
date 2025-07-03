@@ -88,7 +88,7 @@ void Venda::checkout(double valorEntregue)
 	{
 		this->valorEntregue = valorEntregue;
 		double total = getTotalVenda();
-		this->troco = this->valorEntregue - total;
+		this->troco = round((this->valorEntregue - total) /100.00 / 100.00);
 	}
 	this->dataVenda = time(0); // Atualiza data da venda
 }
