@@ -78,6 +78,7 @@ void Venda::adicionarProduto(const Produto& produto, int quantidade)
 
 void Venda::checkout(double valorEntregue)
 {
+    
 	if (vendaSorteada)
 	{
 		this->valorEntregue = 0;
@@ -86,10 +87,14 @@ void Venda::checkout(double valorEntregue)
 	}
 	else
 	{
+        
 		this->valorEntregue = valorEntregue;
 		double total = getTotalVenda();
-        this->troco = ((this->valorEntregue - total) * 100.00 / 100.00);
+		double trocoBruto = std::max(0.0, this->valorEntregue - total); // Calcula o troco bruto, garantindo que não seja negativo
+		this->troco = round(trocoBruto * 100.0) / 100.0; // Arredonda o troco para duas casas decimais
 	}
+    
+
 	this->dataVenda = time(0); // Atualiza data da venda
 }
 
