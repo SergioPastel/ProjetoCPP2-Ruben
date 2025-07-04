@@ -1,0 +1,6 @@
+*.suo
+*.VC.db
+*.ipch
+*.db
+[Bb]uild/
+[Dd]ebug/
