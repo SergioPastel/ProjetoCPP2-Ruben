@@ -45,6 +45,4 @@ int Validacoes::validacaoInt(const string& prompt) { // Usado em cin's para vali
             Validacoes::tratarErroEntrada();
         }
     }
-
-    return n;
 }

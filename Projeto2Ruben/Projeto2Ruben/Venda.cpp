@@ -3,7 +3,8 @@
 #pragma warning(disable : 4996) // Necessario pra não ocorrer erro de segurança com o CTIME
 
 using namespace std;
-int Venda::proximoId = 1;
+
+int Venda::proximoId = 1; // Inicializa o ID da primeira venda em 1
 
 LinhaVenda::LinhaVenda(int numeroLinha, const Produto& produto, int quantidade, double precoSemIVA, double iva, double totalComIVA)
 {
@@ -44,11 +45,10 @@ double LinhaVenda::getTotalComIVA() const
 {
 	return this->totalComIVA;
 }
-;
 
 Venda::Venda()
 {
-	this->idVenda = this->proximoId++;
+	this->idVenda = this->proximoId++; // Aumenta o ID da venda
 	this->valorEntregue = 0.0;
 	this->troco = 0.0;
 	this->dataVenda = time(0);
@@ -73,8 +73,6 @@ void Venda::adicionarProduto(const Produto& produto, int quantidade)
 	LinhaVenda linha(numeroLinha, produto, quantidade, precoSemIVA, iva, totalComIVA);
 	this->linhas.push_back(linha);
 }
-
-
 
 void Venda::checkout(double valorEntregue)
 {
