@@ -74,7 +74,7 @@ void Funcoes::exibirMenu() {
             _getch();
             break;
         default:
-            cout << "Opcao invalida! Tente novamente." << endl;
+            cout << RED << "Opcao invalida! Tente novamente." << RESET << endl;
             _getch();
         }
         cout << endl;
@@ -114,7 +114,7 @@ void Funcoes::submenuEstoque(Loja& l) {
         case 0:
             break;
         default:
-            cout << "Opção inválida! Tente novamente." << endl;
+            cout << RED << "Opção inválida! Tente novamente." << RESET << endl;
             _getch();
         }
     } while (opcao != 0);
@@ -163,7 +163,7 @@ void Funcoes::submenuClientes(Loja& l) {
         case 0:
             break;
         default:
-            cout << "Opção inválida! Tente novamente." << endl;
+            cout << RED << "Opção inválida! Tente novamente." << RESET << endl;
             _getch();
         }
     } while (opcao != 0);
@@ -208,7 +208,7 @@ void Funcoes::submenuRelatorios(Loja& l) {
         case 0:
             break;
         default:
-            cout << "Opção inválida! Tente novamente." << endl;
+            cout << RED << "Opção inválida! Tente novamente." << RESET << endl;
             _getch();
         }
     } while (opcao != 0);

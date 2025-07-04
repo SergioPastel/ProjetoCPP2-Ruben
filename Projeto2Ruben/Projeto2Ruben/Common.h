@@ -13,3 +13,7 @@
 #include <algorithm> // adicionador para verificar a igualdade entre strings: transform e tolower
 #include <limits> // Necessário para as funções de validações
 #include <sstream> // Necessário para std::ostringstream
+#define RESET   "\033[0m" // Reseta a cor para o padrão.
+#define RED     "\033[31m" // Define a cor vermelha.
+#define GREEN   "\033[32m" // Define a cor verde.
+#define CYAN    "\033[36m" // Define a cor ciano.

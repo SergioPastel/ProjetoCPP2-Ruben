@@ -1,8 +1,8 @@
 ﻿  Loja.cpp
-C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(101,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
-C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(163,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
-C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(213,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
-C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(251,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(97,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(159,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(209,33): warning C4267: 'argumento': conversão de 'size_t' para 'int', possível perda de dados
+C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(247,17): warning C4267: 'inicializando': conversão de 'size_t' para 'int', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244: 'argumento': conversão de '_Ty' para 'float', possível perda de dados
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:         with
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103): warning C4244:         [
@@ -11,9 +11,9 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
   (compilando o arquivo fonte 'Loja.cpp')
       C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\xmemory(732,103):
       o contexto de instanciação do modelo (o mais antigo primeiro) é
-          C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(32,20):
+          C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(28,20):
           consulte a referência à instanciação 'void std::vector<Produto,std::allocator<Produto>>::emplace_back<int,const char(&)[8],int,double>(int &&,const char (&)[8],int &&,double &&)' do modelo que está sendo compilada
-              C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(32,32):
+              C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\Projeto2Ruben\Loja.cpp(28,32):
               veja a primeira referência a 'std::vector<Produto,std::allocator<Produto>>::emplace_back' em 'Loja::Loja'
           C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\include\vector(909,24):
           consulte a referência à instanciação '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<int,const char(&)[8],int,double>(int &&,const char (&)[8],int &&,double &&)' do modelo que está sendo compilada
@@ -36,6 +36,4 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.3480
               _Objty=Produto
           ]
   
-  Venda.cpp
-  Gerando Código...
   Projeto2Ruben.vcxproj -> C:\Users\diego\Visual Studio\Git\Git\ProjetoCPP2-Ruben\Projeto2Ruben\x64\Debug\Projeto2Ruben.exe

@@ -7,10 +7,6 @@
 #include "Funcoes.h"
 #include <map>
 
-#define RESET   "\033[0m" // Reseta a cor para o padrão.
-#define RED     "\033[31m" // Define a cor vermelha.
-#define GREEN   "\033[32m" // Define a cor verde.
-#define CYAN    "\033[36m" // Define a cor ciano.
 
 void Loja::logotipo() // O Logotipo está aqui pois poderiamos hipoteticamente ter mais de uma loja
 { cout << GREEN << R"(
@@ -66,7 +62,7 @@ void Loja::mostrarEstoque() {
         }
     }
     if (estoqueVazioOuZerado) {
-        cout << "O estoque está vazio ou todos os produtos têm quantidade 0." << endl;
+        cout << RED << "O estoque está vazio ou todos os produtos têm quantidade 0." << RESET << endl;
     }
     cout << "---------------------------------------------------------------------------" << endl;
 }
@@ -89,7 +85,7 @@ void Loja::mostrarEstoqueComPrecoVenda() {
         estoqueVazio = false;
     }
     if (estoqueVazio) {
-        cout << "O estoque está vazio." << endl;
+        cout << RED << "O estoque está vazio." << RESET << endl;
     }
     cout << "---------------------------------------------------------------------------" << endl;
 }
@@ -123,7 +119,7 @@ void Loja::removerProduto() {
 
     // Verifica se o produto existe
     if (produtoSelecionado == nullptr) {
-        cout << "Produto com ID " << idProduto << " não encontrado.\n";
+        cout << RED << "Produto com ID " << idProduto << " não encontrado.\n" << RESET;
     }
     else if (produtoSelecionado->getQuantidade() == 0) { // Se o produto existe, mas não está mais em estoque
         cout << "Este produto ja nao esta em estoque.";
@@ -602,7 +598,7 @@ void Loja::efetuarVenda()
 
         // Assegura-se de que o produto existe
         if (!produtoSelecionado || produtoSelecionado->getQuantidade() == 0) {
-            cout << "Produto inválido ou sem estoque.\n";
+            cout << RED << "Produto inválido ou sem estoque.\n" << RESET;
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
         else {

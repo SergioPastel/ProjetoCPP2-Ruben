@@ -10,7 +10,7 @@ void Validacoes::limparBufferEntrada() {
 
 //função para tratar entrada inválida.
 void Validacoes::tratarErroEntrada() {
-    cout << "Entrada inválida. Por favor, tente novamente.\n";
+	cout << RED << "Entrada inválida. Por favor, tente novamente.\n"; cout << RESET << endl;
     cin.clear(); // Limpa os flags de erro
     Validacoes::limparBufferEntrada(); // Descarta a entrada inválida
 }
