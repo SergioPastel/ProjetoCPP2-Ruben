@@ -1,14 +1,12 @@
 ﻿#include "Loja.h"
-#include "Common.h"
 #include "Venda.h"
 #include "Produto.h"
 #include "Cliente.h"
 #include "Validacoes.h"
 #include "Funcoes.h"
-#include <map>
+// Common não é incluido porque já está incluido em outros headers
 
-
-void Loja::logotipo() // O Logotipo está aqui pois poderiamos hipoteticamente ter mais de uma loja
+void Loja::logotipo() 
 { cout << GREEN << R"(
                                                           
     ####    #####   #####     ####      ####    #####              ##     ##   ##   ####    ##   ##    ##     ####
@@ -24,7 +22,7 @@ void Loja::logotipo() // O Logotipo está aqui pois poderiamos hipoteticamente t
 }
 
 	
-Loja::Loja() {
+Loja::Loja() { // Construtor da classe Loja, recebe os produtos e clientes iniciais
     this->Produtos.emplace_back(1, "Coleira", 20, 10.00);
     this->Produtos.emplace_back(2, "Racao Premium", 15, 20.90);
     this->Produtos.emplace_back(3, "Caminha king size", 30, 18.50);
@@ -52,13 +50,13 @@ void Loja::mostrarEstoque() {
         << right << setw(18) << "Preco Custo (EUR)" << endl;
     cout << "---------------------------------------------------------------------------" << endl;
     bool estoqueVazioOuZerado = true;
-    for (const Produto& p : Produtos) {
+	for (const Produto& p : Produtos) { // Percorre o vetor de produtos e imprime os dados de cada produto. Const porque não vamos alterar os produtos nesse momento. & é para não fazer cópia do objeto Produto, mas sim referenciar o original.
         if (p.getQuantidade() > 0) {
             cout << left << setw(5) << p.getId() << "| "
                 << left << setw(30) << p.getNome() << "| "
                 << left << setw(6) << p.getQuantidade() << "| "
                 << right << setw(15) << fixed << setprecision(2) << p.getPreco() << " EUR" << endl;
-            estoqueVazioOuZerado = false;
+			estoqueVazioOuZerado = false; // Se pelo menos um produto tiver quantidade maior que 0, o estoque não está vazio ou zerado
         }
     }
     if (estoqueVazioOuZerado) {
@@ -67,7 +65,7 @@ void Loja::mostrarEstoque() {
     cout << "---------------------------------------------------------------------------" << endl;
 }
 
-void Loja::mostrarEstoqueComPrecoVenda() {
+void Loja::mostrarEstoqueComPrecoVenda() { // Mostra o estoque com o preço de venda calculado (custo * 1.3)
     cout << endl;
     cout << "------------------------------ ESTOQUE ATUAL ------------------------------" << endl;
     cout << left << setw(5) << "ID" << "| "
@@ -93,9 +91,9 @@ void Loja::mostrarEstoqueComPrecoVenda() {
 
 //função para verificar se o produto escolhido tem no estoque.
 void Loja::checarProdutoEstoque(int idProduto, Produto*& produtoSelecionado) {
-    //percorre o estoque e se encontrar o produto no estoque, guarda o vetor no ponteiro.
-    int tamanho = Produtos.size(); // Pra não dar erro no VS code
-    produtoSelecionado = nullptr; // Inicia o ponteiro a nullo, para não haver lixo
+    // Percorre o estoque e se encontrar o produto no estoque, guarda o vetor no ponteiro.
+	int tamanho = Produtos.size(); // Usar Produtos.size() diretamente pode dar erros no compilador(como VS code)
+    produtoSelecionado = nullptr; // Inicia o ponteiro a nulo, para não haver lixo
     for (int i = 0; i < tamanho; i++) {
         if (Produtos[i].getId() == idProduto) {
             produtoSelecionado = &Produtos[i];
@@ -146,7 +144,7 @@ void Loja::removerProduto() {
 void Loja::adicionarProduto() {
 
     string nome;
-    int valorAdd;
+    int valorAdd; 
     bool existe = false; // Flag inspeciona se o artigo ja existe
 
     system("cls");
@@ -171,7 +169,7 @@ void Loja::adicionarProduto() {
                     break;
                 }
                 else {
-                    cout << "Quantidade inválida. Por favor, insira um valor maior ou igual a zero.\n";
+                    cout << RED << "Quantidade inválida. Por favor, insira um valor maior ou igual a zero.\n" << RESET;
                 }
             }
             Produtos[i].setQuantidade(Produtos[i].getQuantidade() + valorAdd);
@@ -261,7 +259,7 @@ void Loja::mostrarClientes()
 	logotipo();
 	cout << endl;
     cout << "------------------- CLIENTES -------------------" << endl;
-    for (const auto& c : Clientes) {
+	for (const auto& c : Clientes) { // Percorre o vetor de clientes e imprime os dados de cada cliente. Const porque não vamos alterar os clientes nesse momento. & é para não fazer cópia do objeto Cliente, mas sim referenciar o original.
         c.imprimirDados();
     }
     cout << "------------------------------------------------" << endl;
@@ -269,7 +267,7 @@ void Loja::mostrarClientes()
 
 void Loja::alterarCliente(int id) {
     Cliente* cliente = nullptr;
-    bool alterado = false;
+	bool alterado = false; // Flag para verificar se houve alteração
     string input;
     char opt;
 
@@ -337,7 +335,7 @@ void Loja::removerCliente(int id) {
     string input;
     char opt;
 
-    checarCliente(id, cliente);
+	checarCliente(id, cliente); // Verifica se o cliente existe no vetor de clientes. Atribui o ponteiro cliente ao cliente encontrado ou nulo se não encontrar.
 
     if (id == 0) {
         return;
@@ -360,7 +358,7 @@ void Loja::removerCliente(int id) {
         }
 
         // Remove o cliente do vetor
-        for (auto it = Clientes.begin(); it != Clientes.end(); ++it) {
+		for (auto it = Clientes.begin(); it != Clientes.end(); ++it) { // auto it = Clientes.begin() para iniciar o iterador no começo do vetor de clientes, que pode ter sido alterado 
             if (it->getId() == id) {
                 Clientes.erase(it);
                 cout << "Cliente removido com sucesso.\n";
@@ -375,7 +373,7 @@ void Loja::removerCliente(int id) {
 }
 
 void Loja::adicionarCliente() {
-    int id = Clientes.back().getId() + 1;
+	int id = Clientes.back().getId() + 1; // Atribui o próximo ID baseado no último cliente
     string nome;
     int telefone;
     string morada;
@@ -394,18 +392,20 @@ void Loja::adicionarCliente() {
 
 void Loja::adicionarVenda(const Venda& venda)
 {
-    static int pos = 0; // Mantém a posição da próxima escrita (circular)
     if (Vendas.size() < 100) {
         Vendas.push_back(venda);
     }
     else {
-        Vendas[pos] = venda;
+		if (vendaIndex == 100) { // Se o índice de venda for igual a 100, significa que já percorremos todas as posições
+            vendaIndex = 0;
+        }
+        Vendas[vendaIndex] = venda; // Usa o venda index para substituir a venda mais antiga
     }
-    pos = (pos + 1) % 100; // Avança circularmente
+    vendaIndex = (vendaIndex + 1) % 100; // Avança circularmente
 }
 
 void Loja::relatorioEstoqueTotal() {
-    int total = 0;
+	int total = 0; // Variável para armazenar o total de itens em estoque
 	system("cls");
 	logotipo();
 	cout << endl;
@@ -440,10 +440,10 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
 
     cout << "Relatório de vendas para o produto: " << nomeProduto << endl;
 
-    for (size_t i = 0; i < Vendas.size(); ++i) {
+	for (size_t i = 0; i < Vendas.size(); ++i) { // size_t é usado para evitar problemas de overflow com o tamanho do vetor
         const Venda& venda = Vendas[i];
 
-        for (const LinhaVenda& linha : venda.getLinhas()) {
+		for (const LinhaVenda& linha : venda.getLinhas()) { // const LinhaVenda& linha é usado para evitar cópias desnecessárias
             if (Funcoes::toMinuscula(linha.getProduto().getNome()) == Funcoes::toMinuscula(nomeProduto)) {
                 int qtd = linha.getQuantidade();
                 double totalLinha = linha.getTotalComIVA();
@@ -485,21 +485,21 @@ void Loja::relatorioTotalVendas() {
         return;
     }
 
-    map<string, int> vendasPorProduto;
-    map<string, double> lucroPorProduto;
-    map<int, double> valorPorCliente;
+	map<string, int> vendasPorProduto; // Mapeia o nome do produto para a quantidade vendida
+	map<string, double> lucroPorProduto; // Mapeia o nome do produto para o lucro total
+	map<int, double> valorPorCliente; // Mapeia o ID do cliente para o valor total gasto
     double totalVendas = 0.0;
 
     // Garantir que todos os produtos estejam registrados mesmo com 0 vendas
     for (const Produto& p : Produtos)
         vendasPorProduto[p.getNome()] = 0;
 
-    for (const Venda& venda : Vendas) {
+	for (const Venda& venda : Vendas) { // Percorre todas as vendas e calcula os totais
         totalVendas += venda.getTotalVenda();
         int idCliente = venda.getCliente().getId();
         valorPorCliente[idCliente] += venda.getTotalVenda();
 
-        for (const LinhaVenda& linha : venda.getLinhas()) {
+		for (const LinhaVenda& linha : venda.getLinhas()) { // Percorre as linhas de venda para calcular as vendas por produto e lucro
             string nome = linha.getProduto().getNome();
             vendasPorProduto[nome] += linha.getQuantidade();
             double precoCusto = linha.getProduto().getPreco();
@@ -509,10 +509,10 @@ void Loja::relatorioTotalVendas() {
         }
     }
 
-    vector<string> maisVendidos, menosVendidos;
-    int maxQtd = -1, minQtd = INT_MAX;
+	vector<string> maisVendidos, menosVendidos; // Vetores para armazenar os produtos mais e menos vendidos
+	int maxQtd = -1, minQtd = INT_MAX; // Inicializa com valores extremos para comparação
 
-    for (const auto& par : vendasPorProduto) {
+	for (const auto& par : vendasPorProduto) { // Percorre o mapa de vendas por produto
         if (par.second > maxQtd) {
             maxQtd = par.second;
             maisVendidos = { par.first };
@@ -530,9 +530,9 @@ void Loja::relatorioTotalVendas() {
         }
     }
 
-    int idClienteTop = -1;
+	int idClienteTop = -1; // ID do cliente que mais gastou, inicializado como -1 para indicar que nenhum cliente foi encontrado
     double maiorValor = 0.0;
-    for (const auto& par : valorPorCliente) {
+	for (const auto& par : valorPorCliente) { // Percorre o mapa de valor por cliente para encontrar o cliente que mais gastou
         if (par.second > maiorValor) {
             maiorValor = par.second;
             idClienteTop = par.first;
@@ -578,10 +578,9 @@ void Loja::efetuarVenda()
     string input;
     char opt;
     Cliente* cliente;
+    Venda venda;
 
     system("cls");    
-
-    Venda venda;
 
     // Seleção de produtos
     char adicionarMais;
@@ -700,13 +699,13 @@ void Loja::efetuarVenda()
         getline(cin, input);
         opt = input[0];
 
-        if (opt == 'n' || opt == 'n') {
+		if (opt == 'n' || opt == 'N') { // Se o usuário não quiser prosseguir, cancela a venda antes de atualizar o estoque
             cout << "\nVenda cancelada";
             _getch();
             return;
         }
 
-    } while (opt != 'y' && opt != 'Y' && opt != 'n' && opt != 'N');
+    } while (opt != 'y' && opt != 'Y');
 
     // Confirmar venda e atualizar estoque
     const auto& itensVendidos = venda.getLinhas();
@@ -727,7 +726,7 @@ void Loja::efetuarVenda()
 
     // Sorteio ANTES de pedir o valor ao cliente
     srand((unsigned)time(0));
-    bool sorteada = (rand() % 50 == 0);
+	bool sorteada = (rand() % 4 == 0);  // Sorteia 1 em 4 vendas para serem gratuitas
     venda.setVendaSorteada(sorteada);
 
     if (sorteada) {
@@ -736,15 +735,16 @@ void Loja::efetuarVenda()
     }
     else {
         double valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
-		const double EPSILON = 0.01; // Tolerância para comparação de floats
+        const double EPSILON = 0.01; // Tolerância para comparação de floats
         while (valorEntregue + EPSILON < total) {
             cout << "Valor insuficiente. Tente novamente." << endl;
             valorEntregue = Validacoes::obterFloat("Valor entregue pelo cliente: ");
         }
+        double troco = valorEntregue - total;
+        if (troco < EPSILON && troco > -EPSILON) troco = 0.0; // Corrige -0 e aproximações
+        cout << "Troco: " << fixed << setprecision(2) << troco << " EUR" << endl;
         venda.checkout(valorEntregue);
     }
-
-
 
     // Imprimir talão
     system("cls");

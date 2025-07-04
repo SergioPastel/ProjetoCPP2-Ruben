@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Common.h"
 #include "Funcoes.h"
 

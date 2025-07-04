@@ -3,23 +3,21 @@
 #include "Funcoes.h"
 #include "Loja.h"
 
-#define CYAN    "\033[36m" // Define a cor ciano.
-#define RESET   "\033[0m" // Reseta a cor para o padrão.
-
 using namespace std;
 
-// Função para converter uma string para minúsculas
+// Função para converter uma string para minúsculas. Usado para comparações
 string Funcoes::toMinuscula(string str) {
     transform(str.begin(), str.end(), str.begin(), ::tolower);
     return str;
 }
 
+// Todos os menus são definidos aqui, funcionam de forma semelhante, mas com opções diferentes
+
 //função menu
-void Funcoes::exibirMenu() {
+void Funcoes::exibirMenu() { // Menu inicial da aplicação
 	
-    int opcao;
-    string input;
-    Loja l;
+	int opcao; // Variável para armazenar a opção escolhida pelo usuário	
+	Loja l; // Loja que vai ser usada pelas funões do menu
 	
     vector<pair<int, string>> menuOpcoes = { // Menu de opções, usado para impressão das opções na tela
     {1, "Efetuar Venda"},
@@ -29,7 +27,6 @@ void Funcoes::exibirMenu() {
     {0, "Sair"}
     };
 
-
     // Definir as larguras das colunas
     const int larguraID = 7;
     const int larguraOpcao = 40;
@@ -37,9 +34,9 @@ void Funcoes::exibirMenu() {
     // Calcular a largura total da linha
     const int larguraTotal = larguraID + 2 + larguraOpcao + 2; // ID + " | " + Opção + " |"
 
-    string linhaSeparadora(larguraTotal, '-');
+	string linhaSeparadora(larguraTotal, '-'); // Imprime uma linha separadora com base na largura total
 
-    do {
+	do {  // Loop para exibir o menu até que o usuário escolha sair
         system("cls");
         l.logotipo();
 		cout << endl;
@@ -57,7 +54,6 @@ void Funcoes::exibirMenu() {
         opcao = Validacoes::validacaoInt("Escolha uma opcao: ");
         switch (opcao) {
 		case 1: 
-            // chamar funcao de venda aqui 
             l.efetuarVenda();                    
             break;
         case 2: 
@@ -71,7 +67,7 @@ void Funcoes::exibirMenu() {
             break;
         case 0:
             cout << "Pressione qualquer tecla..." << endl;
-            _getch();
+			_getch(); // Getchs são usados para esperar o usuário pressionar uma tecla antes de prosseguir
             break;
         default:
             cout << RED << "Opcao invalida! Tente novamente." << RESET << endl;
@@ -84,7 +80,6 @@ void Funcoes::exibirMenu() {
 
 void Funcoes::submenuEstoque(Loja& l) {
     int opcao;
-    string input;
     do {
         system("cls");
         l.logotipo();
@@ -97,21 +92,18 @@ void Funcoes::submenuEstoque(Loja& l) {
         opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
-            // chamar funcao de criacao
             l.adicionarProduto();
             break;
         case 2:
-            // chamar funcao de eliminacao
             l.removerProduto();
             break;
         case 3:
-            // chamar funcao mostrar estoque
-            system("cls");
+            system("cls"); // As outras funções limpam a tela por si, mas o mostrar estoque não faz isso por default
             l.mostrarEstoque();
             cout << "Prima qualquer tecla...";
             _getch();
             break;
-        case 0:
+		case 0: // Quando o usuário escolhe 0, o loop é encerrado e o menu principal é exibido novamente
             break;
         default:
             cout << RED << "Opção inválida! Tente novamente." << RESET << endl;
@@ -135,16 +127,13 @@ void Funcoes::submenuClientes(Loja& l) {
         opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
-            // chamar funcao adicionar cliente
             l.adicionarCliente();
             break;
         case 2:
-            // chamar funcao mostrar clientes
             l.mostrarClientes();
             l.alterarCliente(Validacoes::validacaoInt("Insira o ID do cliente que desejas alterar: "));
             break;
         case 3:
-            // chamar funcao mostrar clientes
             l.mostrarClientes();
             {
                 int id = Validacoes::validacaoInt("Insira o ID do cliente que desejas remover: ");
@@ -171,7 +160,7 @@ void Funcoes::submenuClientes(Loja& l) {
 
 void Funcoes::submenuRelatorios(Loja& l) {
     int opcao;
-    string input;
+	string input; // Variável para armazenar o nome do produto que o usuário deseja ver no relatório de vendas por produto
     do {
         system("cls");
         l.logotipo();
@@ -194,7 +183,7 @@ void Funcoes::submenuRelatorios(Loja& l) {
             l.logotipo();
             l.mostrarEstoqueComPrecoVenda();
             cout << "Insira o nome do produto que deseja ver: ";
-            getline(cin, input);
+			getline(cin, input); // Getline é usado para ler uma linha inteira, incluindo espaços
             l.relatorioVendasPorProduto(input);
             cout << "Prima qualquer tecla...";
             _getch();

@@ -3,6 +3,8 @@
 
 using namespace std;
 
+// As validações são feitas aqui, para evitar que o código principal fique poluído com validações repetitivas.
+
 // Função auxiliar para limpar o buffer de entrada e tratar erros
 void Validacoes::limparBufferEntrada() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');

@@ -2,8 +2,6 @@
 #include "Common.h"
 #include "Produto.h"
 #include "Cliente.h"
-#include <vector>
-#include <ctime>
 
 using namespace std;
 

@@ -88,7 +88,7 @@ void Venda::checkout(double valorEntregue)
 	{
 		this->valorEntregue = valorEntregue;
 		double total = getTotalVenda();
-		this->troco = round((this->valorEntregue - total) /100.00 / 100.00);
+        this->troco = ((this->valorEntregue - total) * 100.00 / 100.00);
 	}
 	this->dataVenda = time(0); // Atualiza data da venda
 }
@@ -149,7 +149,7 @@ void Venda::imprimirTalao() const
 
     std::cout << "\033[47m\033[30m"; // Fundo branco, texto preto
 
-    auto linhaBranca = [](int largura) {
+	auto linhaBranca = [](int largura) { // Função para imprimir uma linha em branco
         std::cout << std::setfill(' ') << std::setw(largura) << " " << std::endl;
         };
 
@@ -158,7 +158,7 @@ void Venda::imprimirTalao() const
 
     // Linha da fatura e data/hora
     {
-        std::ostringstream oss;
+		std::ostringstream oss; // Usando o std::ostringstream para formatar a string
         std::string dataStr = ctime(&this->dataVenda);
         if (!dataStr.empty() && dataStr.back() == '\n') dataStr.pop_back(); // Remove o \n do ctime
         oss << "Fatura N.: " << this->idVenda << " | Data: " << dataStr;
