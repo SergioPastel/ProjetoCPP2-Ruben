@@ -83,12 +83,12 @@ void Funcoes::submenuEstoque(Loja& l) {
     do {
         system("cls");
         l.logotipo();
-        cout << "\n=========== GESTAO DE ESTOQUE ===========\n";
+        cout << "\n============ GESTAO DE ESTOQUE ============\n";
         cout << "1 - Criar Novo / Atualizar Artigo\n";
         cout << "2 - Excluir Artigo\n";
         cout << "3 - Exibir Produtos\n";
         cout << "0 - Voltar ao menu principal\n";
-        cout << "=============================================\n";
+        cout << "===========================================\n";
         opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
@@ -118,12 +118,12 @@ void Funcoes::submenuClientes(Loja& l) {
     do {
         system("cls");
         l.logotipo();
-        cout << "\n=========== GESTAO DE CLIENTES ===========\n";
+        cout << "\n============ GESTAO DE CLIENTES ============\n";
         cout << "1 - Adicionar clientes\n";
         cout << "2 - Alterar clientes\n";
         cout << "3 - Remover clientes\n";
         cout << "0 - Voltar ao menu principal\n";
-        cout << "=============================================\n";
+        cout << "============================================\n";
         opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:
@@ -164,12 +164,12 @@ void Funcoes::submenuRelatorios(Loja& l) {
     do {
         system("cls");
         l.logotipo();
-        cout << "\n=========== RELATÓRIOS ===========\n";
+        cout << "\n================ RELATÓRIOS ================\n";
         cout << "1 - Relatório de estoque total\n";
         cout << "2 - Relatório de vendas por produto\n";
         cout << "3 - Relatório total de vendas\n";
         cout << "0 - Voltar ao menu principal\n";
-        cout << "=============================================\n";
+        cout << "============================================\n";
         opcao = Validacoes::validacaoInt("Escolha uma opção: ");
         switch (opcao) {
         case 1:

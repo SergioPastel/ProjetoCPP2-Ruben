@@ -258,11 +258,11 @@ void Loja::mostrarClientes()
     system("cls");
 	logotipo();
 	cout << endl;
-    cout << "------------------- CLIENTES -------------------" << endl;
+    cout << "------------------------------- CLIENTES -------------------------------" << endl;
 	for (const auto& c : Clientes) { // Percorre o vetor de clientes e imprime os dados de cada cliente. Const porque não vamos alterar os clientes nesse momento. & é para não fazer cópia do objeto Cliente, mas sim referenciar o original.
         c.imprimirDados();
     }
-    cout << "------------------------------------------------" << endl;
+    cout << "------------------------------------------------------------------------" << endl;
 }
 
 void Loja::alterarCliente(int id) {

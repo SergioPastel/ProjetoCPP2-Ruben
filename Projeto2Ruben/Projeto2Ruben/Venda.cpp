@@ -156,16 +156,16 @@ void Venda::imprimirTalao() const
         std::cout << std::setfill(' ') << std::setw(largura) << " " << std::endl;
         };
 
-    linhaBranca(largura);
-    cout << left << setw(largura) << setfill(' ') << "------------------- TALAO DE COMPRA -------------------" << endl;
+    linhaBranca(largura);    
+    cout << left << setw(largura) << setfill(' ') << "------------------------------- TALAO DE COMPRA --------------------------------" << endl;    
 
     // Linha da fatura e data/hora
     {
-		std::ostringstream oss; // Usando o std::ostringstream para formatar a string
-        std::string dataStr = ctime(&this->dataVenda);
+		ostringstream oss; // Usando o std::ostringstream para formatar a string
+        string dataStr = ctime(&this->dataVenda);
         if (!dataStr.empty() && dataStr.back() == '\n') dataStr.pop_back(); // Remove o \n do ctime
         oss << "Fatura N.: " << this->idVenda << " | Data: " << dataStr;
-        std::string linha = oss.str();
+        string linha = oss.str();
         if (linha.length() > largura) linha = linha.substr(0, largura); // Trunca se passar
         cout << left << setw(largura) << setfill(' ') << linha << endl;
     }
@@ -223,7 +223,7 @@ void Venda::imprimirTalao() const
         }
         {
             std::ostringstream oss;
-            oss << right << setw(largura - 20) << "Troco: " << setw(12) << this->troco << " EUR";
+            oss << right << setw(largura - 20) << "Troco: " << fixed << setprecision(2) << setw(12) << this->troco << " EUR";
             cout << left << setw(largura) << setfill(' ') << oss.str() << endl;
         }
     }
