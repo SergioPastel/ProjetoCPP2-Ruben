@@ -37,6 +37,7 @@ Loja::Loja() { // Construtor da classe Loja, recebe os produtos e clientes inici
     Clientes.push_back(Cliente(1, "João Silva", 912345678, "Rua A, 123"));
     Clientes.push_back(Cliente(2, "Maria Santos", 934567890, "Av. B, 456"));
     Clientes.push_back(Cliente(3, "Carlos Costa", 965432187, "Praça C, 789"));
+    Clientes.push_back(Cliente(4, "Giovanna Vasconcelos", 945789636, "Praça C, 794"));
 }
 
 //funcao mostrar estoque
@@ -51,12 +52,20 @@ void Loja::mostrarEstoque() {
     cout << "---------------------------------------------------------------------------" << endl;
     bool estoqueVazioOuZerado = true;
 	for (const Produto& p : Produtos) { // Percorre o vetor de produtos e imprime os dados de cada produto. Const porque não vamos alterar os produtos nesse momento. & é para não fazer cópia do objeto Produto, mas sim referenciar o original.
-        if (p.getQuantidade() > 0) {
+        if (p.getQuantidade() != 0) {
             cout << left << setw(5) << p.getId() << "| "
-                << left << setw(30) << p.getNome() << "| "
+                << left << LBLUE << setw(30) << p.getNome() << RESET << "| "
                 << left << setw(6) << p.getQuantidade() << "| "
-                << right << setw(15) << fixed << setprecision(2) << p.getPreco() << " EUR" << endl;
+                << right << LGREEN << setw(15) << fixed << setprecision(2) << p.getPreco() << " EUR" << RESET << endl;
 			estoqueVazioOuZerado = false; // Se pelo menos um produto tiver quantidade maior que 0, o estoque não está vazio ou zerado
+        }
+        else {
+            double precoVenda = p.getPreco() * 1.3;
+            cout << left << LRED << setw(5) << p.getId() << RESET << "| "
+                << left << LRED << setw(30) << p.getNome() << RESET << "| "
+                << left << LRED << setw(6) << p.getQuantidade() << RESET << "| "
+                << right << LRED << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << RESET << endl;
+            estoqueVazioOuZerado = false;
         }
     }
     if (estoqueVazioOuZerado) {
@@ -75,12 +84,22 @@ void Loja::mostrarEstoqueComPrecoVenda() { // Mostra o estoque com o preço de v
     cout << "---------------------------------------------------------------------------" << endl;
     bool estoqueVazio = true;
     for (const Produto& p : this->Produtos) {
-        double precoVenda = p.getPreco() * 1.3;
-        cout << left << setw(5) << p.getId() << "| "
-            << left << setw(30) << p.getNome() << "| "
-            << left << setw(6) << p.getQuantidade() << "| "
-            << right << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << endl;
-        estoqueVazio = false;
+        if (p.getQuantidade() != 0) {
+            double precoVenda = p.getPreco() * 1.3;
+            cout << left << setw(5) << p.getId() << "| "
+                << left << LBLUE << setw(30) << p.getNome() << RESET << "| "
+                << left << setw(6) << p.getQuantidade() << "| "
+                << right << LGREEN << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << RESET << endl;
+            estoqueVazio = false;
+        }
+        else {
+            double precoVenda = p.getPreco() * 1.3;
+            cout << left << LRED << setw(5) << p.getId() << RESET << "| "
+                << left << LRED << setw(30) << p.getNome() << RESET << "| "
+                << left << LRED << setw(6) << p.getQuantidade() << RESET << "| "
+                << right << LRED << setw(15) << fixed << setprecision(2) << precoVenda << " EUR" << RESET << endl;
+            estoqueVazio = false;
+        }
     }
     if (estoqueVazio) {
         cout << RED << "O estoque está vazio." << RESET << endl;
@@ -124,7 +143,6 @@ void Loja::removerProduto() {
     }
     else { // O produto existe e está em estoque
         do { // Garante que o usuario escreveu o nome certo e quer prosseguir
-            system("cls");
             cout << "Produto selecionado - ID: " << produtoSelecionado->getId() << " | Nome: " << produtoSelecionado->getNome() << " | Quantidade: " << produtoSelecionado->getQuantidade() << " | Custo: " << produtoSelecionado->getPreco() << "\nDeseja remover do estoque? (Y/N): ";
             getline(cin, input);
             continuar = input[0];
@@ -252,17 +270,16 @@ void Loja::checarCliente(int idCliente, Cliente*& clienteSelecionado) {
     }
 }
 
-
 void Loja::mostrarClientes()
 {
     system("cls");
 	logotipo();
 	cout << endl;
-    cout << "------------------------------- CLIENTES -------------------------------" << endl;
+    cout << "----------------------------------- CLIENTES -----------------------------------" << endl;
 	for (const auto& c : Clientes) { // Percorre o vetor de clientes e imprime os dados de cada cliente. Const porque não vamos alterar os clientes nesse momento. & é para não fazer cópia do objeto Cliente, mas sim referenciar o original.
         c.imprimirDados();
     }
-    cout << "------------------------------------------------------------------------" << endl;
+    cout << "--------------------------------------------------------------------------------" << endl;
 }
 
 void Loja::alterarCliente(int id) {
@@ -608,7 +625,7 @@ void Loja::efetuarVenda()
     bool produtoAdicionado = false;
 
     logotipo();
-    cout << "************ EFETUAR VENDA ************" << endl;
+    cout << "****************************** EFETUAR VENDA ******************************" << endl;
     mostrarEstoqueComPrecoVenda();
     do {
         // Escolhe um produto

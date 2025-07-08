@@ -59,5 +59,8 @@ string Cliente::getMorada() const
 
 void Cliente::imprimirDados() const
 {
-	cout << "ID: " << id << " | " << "Nome: " << nome << " | " << "Telefone: " << telefone << " | " << "Morada: " << morada << endl;
+	cout << left<<setw(4)  << "ID: " << this->getId() << " | "
+		<< "Nome: " << setw(20) << this->getNome() << " | "
+		<< setw(9) << "Telefone: " << setw(9) << this->getTelefone() << " | "
+		<< "Morada: " << this->getMorada() << endl;
 }
