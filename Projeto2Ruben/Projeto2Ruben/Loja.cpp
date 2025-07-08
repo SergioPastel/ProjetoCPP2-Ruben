@@ -446,10 +446,10 @@ void Loja::relatorioVendasPorProduto(const string& nomeProduto) {
 		for (const LinhaVenda& linha : venda.getLinhas()) { // const LinhaVenda& linha é usado para evitar cópias desnecessárias
             if (Funcoes::toMinuscula(linha.getProduto().getNome()) == Funcoes::toMinuscula(nomeProduto)) {
                 int qtd = linha.getQuantidade();
-                double totalLinha = linha.getTotalComIVA();
+                double totalLinha = linha.getTotalComIVA();                               
 
                 cout << "\nVenda " << (i + 1)
-                    << " - Cliente: " << venda.getCliente().getNome()
+                    << " - Cliente: " << venda.getCliente().getNome() // O nome do cliente durante a venda
                     << " (ID: " << venda.getCliente().getId() << ")" << endl;
 
                 cout << "  Quantidade: " << qtd
